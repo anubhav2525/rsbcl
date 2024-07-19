@@ -51,7 +51,7 @@ const ReductionCenterTables = () => {
             <div className=" mx-auto rounded-lg">
                 <div className="overflow-x-auto">
                     <table className="min-w-full bg-white dark:bg-gray-800 dark:shadow-lg text-left rounded-md">
-                    <caption className=" text-center py-3 font-semibold text-gray-900 bg-slate-50 dark:text-white dark:bg-gray-800">
+                        <caption className=" text-center py-3 font-semibold text-gray-900 bg-slate-50 dark:text-white dark:bg-gray-800">
                             <p className=" text-xs sm:text-sm text-gray-500 dark:text-gray-400">
                                 Sugar Cane Crushing, Sugar Production
                             </p>
@@ -61,7 +61,7 @@ const ReductionCenterTables = () => {
                                 <th className="py-2 px-4 border-x border-slate-400">Name</th>
                                 <th className="py-2 px-4 border-x border-slate-400">Designation</th>
                                 <th className="py-2 px-4 border-x border-slate-400">Status</th>
-                                <th className="py-2 px-4 border-x border-slate-400">Office Telephone No.</th>                                
+                                <th className="py-2 px-4 border-x border-slate-400">Office Telephone No.</th>
                             </tr>
                         </thead>
                         <tbody className='text-slate-800 dark:text-slate-300'>
@@ -70,9 +70,7 @@ const ReductionCenterTables = () => {
                                 <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">Economic Adviser, DEA</td>
                                 <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">Chairperson</td>
                                 <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">23092500</td>
-                               
                             </tr>
-
                         </tbody>
                     </table>
                 </div>

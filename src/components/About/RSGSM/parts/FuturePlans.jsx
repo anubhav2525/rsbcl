@@ -29,7 +29,6 @@ const FuturePlans = () => {
                 Rajasthan State Ganganagar Sugar Mills Limited (RSGSM) has reserved the rights of follwing Brand Names as Trade Mark
             </p>
 
-
             {/* future plans table  */}
             <div className="mx-auto rounded-lg">
                 <div className="overflow-x-auto">

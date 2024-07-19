@@ -21,7 +21,7 @@ const NewsTabMenu = () => {
                             </button>
                         </li>
                         <li>
-                            <button type="button" className={`inline-block  px-2 py-2 border-y-2 rounded-md  ${activeTab === "rsbcl" ? "text-blue-600 border-blue-600 dark:text-blue-700 dark:border-blue-600" : "text-slate-800 dark:text-slate-300 border-slate-500 hover:text-blue-600 hover:border-blue-500 dark:hover:text-blue-600 dark:hover:border-blue-600"}`}  onClick={() => {
+                            <button type="button" className={`inline-block  px-2 py-2 border-y-2 rounded-md  ${activeTab === "rsbcl" ? "text-blue-600 border-blue-600 dark:text-blue-700 dark:border-blue-600" : "text-slate-800 dark:text-slate-300 border-slate-500 hover:text-blue-600 hover:border-blue-500 dark:hover:text-blue-600 dark:hover:border-blue-600"}`} onClick={() => {
                                 setactivenews(<NewsrsbclTab />)
                                 setactiveTab("rsbcl")
                             }}>
@@ -29,7 +29,7 @@ const NewsTabMenu = () => {
                             </button>
                         </li>
                         <li>
-                            <button type="button"className={`inline-block  px-2 py-2 border-y-2 rounded-md  ${activeTab === "rsgsm" ? "text-blue-600 border-blue-600 dark:text-blue-700 dark:border-blue-600" : "text-slate-800 dark:text-slate-300 border-slate-500 hover:text-blue-600 hover:border-blue-500 dark:hover:text-blue-600 dark:hover:border-blue-600"}`} onClick={() => {
+                            <button type="button" className={`inline-block  px-2 py-2 border-y-2 rounded-md  ${activeTab === "rsgsm" ? "text-blue-600 border-blue-600 dark:text-blue-700 dark:border-blue-600" : "text-slate-800 dark:text-slate-300 border-slate-500 hover:text-blue-600 hover:border-blue-500 dark:hover:text-blue-600 dark:hover:border-blue-600"}`} onClick={() => {
                                 setactivenews(<NewsrsgsmTab />)
                                 setactiveTab("rsgsm")
                             }}>

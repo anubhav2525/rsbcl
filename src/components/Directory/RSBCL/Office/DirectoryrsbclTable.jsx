@@ -29,10 +29,7 @@ const DirectoryrsbclTable = ({data}) => {
                                     <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">R.No. 40-A, North Block, New Delhi-1.</td>
                                 </tr>
                             ))
-                        }
-
-                        {/* */}
-
+                        }                        
                     </tbody>
                 </table>
             </div>

@@ -30,9 +30,6 @@ const DirectoryrsbclDepotsTable = ({ data }) => {
                                 </tr>
                             ))
                         }
-
-                        {/* */}
-
                     </tbody>
                 </table>
             </div>

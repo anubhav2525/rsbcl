@@ -45,13 +45,14 @@ const TechnologicalEnhancement = () => {
                                     <th className="py-2 px-4">Official Address</th>
                                 </tr>
                             </thead>
-                            <tbody className='text-slate-800 dark:text-slate-300'>                          <tr className='text-xs md:text-sm'>
-                                <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">Ms. Chandni Raina</td>
-                                <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">Economic Adviser, DEA</td>
-                                <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">Chairperson</td>
-                                <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">23092500</td>
-                                <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">R.No. 40-A, North Block, New Delhi-1.</td>
-                            </tr>
+                            <tbody className='text-slate-800 dark:text-slate-300'>
+                                <tr className='text-xs md:text-sm'>
+                                    <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">Ms. Chandni Raina</td>
+                                    <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">Economic Adviser, DEA</td>
+                                    <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">Chairperson</td>
+                                    <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">23092500</td>
+                                    <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">R.No. 40-A, North Block, New Delhi-1.</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

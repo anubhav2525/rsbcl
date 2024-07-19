@@ -9,22 +9,22 @@ const DirectoryrsgsmSugarmill = () => {
     // api
     const [office, setOffice] = useState([]);
 
-    useEffect(() => {
-        const getData = async () => {
-            try {
-                const response = await axios.get("https://jsonplaceholder.typicode.com/posts");// Use the proxied URL
-                setOffice(response.data);
-                console.log(office)
-                // console.log('Response data:', response.data); // Log the response data
-            }
-            catch (error) {
-                console.error('Error:', error); // Log any errors
-            } finally {
-                setLoading(false);
-            }
-        }
-        getData();
-    }, []);
+    // useEffect(() => {
+    //     const getData = async () => {
+    //         try {
+    //             const response = await axios.get("https://jsonplaceholder.typicode.com/posts");// Use the proxied URL
+    //             setOffice(response.data);
+    //             console.log(office)
+    //             // console.log('Response data:', response.data); // Log the response data
+    //         }
+    //         catch (error) {
+    //             console.error('Error:', error); // Log any errors
+    //         } finally {
+    //             setLoading(false);
+    //         }
+    //     }
+    //     getData();
+    // }, []);
 
     if (loading) {
         return <Spinner />;
@@ -44,7 +44,7 @@ const DirectoryrsgsmSugarmill = () => {
                     </li>
                     <li aria-current="page">
                         <div className="flex items-center">
-                            <svg class="rtl:rotate-180  w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <svg className="rtl:rotate-180  w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 9 4-4-4-4" />
                             </svg>
                             <span className="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">Directory</span>
@@ -63,9 +63,7 @@ const DirectoryrsgsmSugarmill = () => {
 
             {/* Heading  */}
             <h2 className="mb-4 text-2xl font-extrabold leading-none text-gray-600 md:text-3xl dark:text-slate-300 tracking-wide">RSGSM Sugar Mill</h2>
-
             <p className="tracking-wider text-center text-gray-500 md:text-lg dark:text-gray-400">RSGSM Sugar Mill</p>
-
             <DirectoryrsgsmSugarmillTable data={office} />
         </div>
     )

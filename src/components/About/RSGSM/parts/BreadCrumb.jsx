@@ -2,7 +2,6 @@ import React from 'react'
 
 const BreadCrumb = () => {
     return (
-
         <div className="flex mb-5 px-4 py-3">
             <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
                 <li className="inline-flex items-center">

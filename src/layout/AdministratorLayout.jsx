@@ -10,7 +10,7 @@ const AdministratorLayout = () => {
                 <Header />
                 <Navbar />
             </header>
-            <main className='bg-white dark:bg-slate-950 min-h-96 w-full'>
+            <main className='bg-white dark:bg-slate-950 max-h-screen w-full'>
                 <AdministrativeDashboard />
             </main>
         </div>

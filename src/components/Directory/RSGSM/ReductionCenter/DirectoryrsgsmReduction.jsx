@@ -6,7 +6,7 @@ import Spinner from '../../../Loader/Spinner'
 const DirectoryrsgsmReduction = () => {
     // loader
     const [loading, setLoading] = useState(true);
-    
+
     // api
     const [office, setOffice] = useState([]);
 
@@ -44,6 +44,7 @@ const DirectoryrsgsmReduction = () => {
                             Home
                         </a>
                     </li>
+
                     <li aria-current="page">
                         <div className="flex items-center">
                             <svg class="rtl:rotate-180  w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
@@ -52,6 +53,7 @@ const DirectoryrsgsmReduction = () => {
                             <span className="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">Directory</span>
                         </div>
                     </li>
+
                     <li aria-current="page">
                         <div className="flex items-center">
                             <svg className="rtl:rotate-180  w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
@@ -60,12 +62,12 @@ const DirectoryrsgsmReduction = () => {
                             <span className="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">RSGSM Reduction</span>
                         </div>
                     </li>
+
                 </ol>
             </div>
 
             {/* Heading  */}
             <h2 className="mb-4 text-2xl font-extrabold leading-none text-gray-600 md:text-3xl dark:text-slate-300 tracking-wide">RSGSM Reduction Center</h2>
-
             <DirectoryrsgsmReductionTable data={office} />
         </div>
     )

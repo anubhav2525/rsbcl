@@ -30,9 +30,6 @@ const DirectoryExciseTable = ({data}) => {
                                 </tr>
                             ))
                         }
-
-                        {/* */}
-
                     </tbody>
                 </table>
             </div>
