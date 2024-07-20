@@ -1,12 +1,35 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
 
-const SalesCountryLiquor = ({ children }) => {
+const SalesCountryLiquor = ({ children, year, category }) => {
+    // api call    
+    const [salesData, setSalesData] = useState([]);
+    useEffect(() => {
+        axios.get(`/api/v1/sales/countryLiquor?year=${year}&category=${category}`) // Use the proxied URL
+            .then((res) => {
+                setSalesData(res.data);
+                // console.log('Response data:', res.data); // Log the response data
+            })
+            .catch((error) => {
+                console.error('Error:', error); // Log any errors
+            });
+    }, [year]);
+
+    // console.log("salesCL", year, category, children)
+    // console.log(salesData)
+
+    // salesData.forEach(data => {
+    //     console.log(data)
+    // });
+
+    
     return (
         <div className="flex flex-col my-4 p-2 bg-white dark:bg-slate-800 rounded-md shadow-xl">
             <div className='flex justify-between items-end px-2'>
                 <h2 className="text-xl text-slate-800 font-bold dark:text-white">Country Liquor</h2>
                 <div className="text-sm text-red-600 font-medium mt-4">In {children}</div>
             </div>
+
             <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                     <div className="overflow-hidden">
@@ -24,20 +47,26 @@ const SalesCountryLiquor = ({ children }) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr
-                                    className="border-b border-neutral-200 transition duration-300 ease-in-out text-end hover:bg-neutral-100 dark:border-white/10 dark:hover:bg-neutral-600">
-                                    <td className="whitespace-nowrap px-3 py-2 font-medium text-left border-x dark:border-slate-500">1</td>
-                                    <td className="whitespace-nowrap border-x px-3 py-2 text-left dark:border-slate-500">12121212</td>
-                                    <td className="whitespace-nowrap px-3 py-2 border-x dark:border-slate-500">121212121</td>
-                                    <td className="whitespace-nowrap px-3 py-2 dark:border-slate-500 border-x">1212121212</td>
-                                    <td className="whitespace-nowrap dark:border-slate-500 px-3 py-2 border-x">12121212121</td>
-                                    <td className="whitespace-nowrap dark:border-slate-500 px-3 py-2 border-x">212121212</td>
-                                </tr>
+                                {
+                                    salesData.map((item, index) => {
+                                        return (
+                                            <tr key={index}
+                                                className="border-b border-neutral-200 transition duration-300 ease-in-out text-end hover:bg-neutral-100 dark:border-white/10 dark:hover:bg-neutral-600">
+                                                <td className="whitespace-nowrap px-3 py-2 font-medium text-left border-x dark:border-slate-500">{index + 1}</td>
+                                                <td className="whitespace-nowrap border-x px-3 py-2 text-left dark:border-slate-500">{item.district}</td>
+                                                <td className="whitespace-nowrap px-3 py-2 border-x dark:border-slate-500">{item.up40}</td>
+                                                <td className="whitespace-nowrap px-3 py-2 dark:border-slate-500 border-x">{item.up50}</td>
+                                                <td className="whitespace-nowrap dark:border-slate-500 px-3 py-2 border-x">{item.up5}</td>
+                                                <td className="whitespace-nowrap dark:border-slate-500 px-3 py-2 border-x">{item.total}</td>
+                                            </tr>
+                                        )
+                                    })
+                                }
                             </tbody>
                             <tfoot>
                                 <tr
                                     className="border-b border-neutral-200 transition duration-300 ease-in-out font-bold text-yellow-500 hover:bg-neutral-100 text-end dark:border-white/10 dark:hover:bg-neutral-600">
-                                    <td className="whitespace-nowrap text-center border-x px-3 py-2 dark:border-slate-500" colSpan={2}>Mark</td>
+                                    <td className="whitespace-nowrap text-center border-x px-3 py-2 dark:border-slate-500" colSpan={2}>Total</td>
                                     <td className="whitespace-nowrap dark:border-slate-500 px-3 py-2 border-x">Otto</td>
                                     <td className="whitespace-nowrap dark:border-slate-500 border-x px-3 py-2">@mdo</td>
                                     <td className="whitespace-nowrap dark:border-slate-500 px-3 py-2 border-x">Otto</td>

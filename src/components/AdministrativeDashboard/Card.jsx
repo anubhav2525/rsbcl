@@ -6,7 +6,7 @@ const Card = ({ price, percentage, category }) => {
   return (
     <div className="rounded-lg border-2 overflow-hidden shadow-lg hover:bg-slate-50 dark:bg-gradient-to-r dark:from-blue-500 dark:via-blue-600 dark:to-blue-700 dark:hover:bg-gradient-to-br dark:border-0 dark:border-slate-700 bg-white p-4 transform transition duration-500 hover:scale-105">
       <div className="flex items-center justify-between mb-4">
-        <div className="text-sm font-semibold text-gray-500 dark:text-white uppercase tracking-wide">{category}</div>
+        <div className="text-sm font-bold text-gray-600 dark:text-white uppercase tracking-wide">{category}</div>
         <div className={`text-sm font-semibold ${isPositive ? 'text-green-500' : 'text-red-500'}`}>
           {isPositive ? `+${percentage}%` : `${percentage}%`}
         </div>
