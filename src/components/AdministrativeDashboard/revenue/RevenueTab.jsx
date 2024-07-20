@@ -9,12 +9,12 @@ import { currentYear } from '../../../context/administrativeDashboard/CurrentYea
 const RevenueTab = () => {
     const context = useContext(currentYear);
     return (
-        <div className='p-4 w-full h-full overflow-y-auto'>
+        <div className='p-4 w-full h-full overflow-y-aut0 overflow-x-auto sm:no-scrollbar'>
             <div className='flex justify-between items-end'>
                 <h2 className="text-2xl text-slate-800 font-bold dark:text-white">Revenue</h2>
             </div>
             <CardSection year={context.year} />
-            <div className='my-4'>
+            <div className='my-4 overflow-x-auto sm:no-scrollbar'>
                 <RevenueBeer year={context.year} />
                 <RevenueCountryLiquor year={context.year} />
                 <RevenueImfl year={context.year} />

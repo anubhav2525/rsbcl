@@ -22,13 +22,50 @@ const SalesRml = ({ children, year, category }) => {
     //     console.log(data)
     // });
 
+
+    // total calculation 
+    const [totalWhisky, settotalWhisky] = useState(0);
+    const [totalRum, settotalRum] = useState(0);
+    const [totalVodka, settotalVodka] = useState(0);
+    const [totalgin, settotalgin] = useState(0);
+    const [total, settotal] = useState(0);
+
+    useEffect(() => {
+        const totalcalculation = () => {
+            let whisky = 0, rum = 0, vodka = 0, gin = 0, totalSum = 0;
+            salesrml.forEach(item => {
+                whisky += item.whisky;
+                rum += item.rum;
+                vodka += item.vodka;
+                gin += item.vodka;
+                totalSum += item.total;
+            })
+
+            // round 2 digits
+            whisky = parseFloat(whisky.toFixed(2));
+            rum = parseFloat(rum.toFixed(2));
+            vodka = parseFloat(vodka.toFixed(2));
+            gin = parseFloat(gin.toFixed(2));
+            totalSum = parseFloat(totalSum.toFixed(2));
+
+            // updating in state
+            settotalWhisky(whisky)
+            settotalRum(rum)
+            settotalVodka(vodka)
+            settotalgin(gin)
+            settotal(totalSum)
+        }
+        totalcalculation()
+    }, [salesrml]);
+
+
     return (
-        <div className="flex flex-col my-4 p-2 bg-white dark:bg-slate-800 rounded-md shadow-xl">
+        <div className="flex flex-col my-4 p-2 bg-white dark:bg-slate-800 overflow-x-auto sm:no-scrollbar rounded-md shadow-xl">
             <div className='flex justify-between items-end px-2'>
                 <h2 className="text-xl text-slate-800 font-bold dark:text-white">Rajasthan Manufactured Liquor</h2>
                 <div className="text-sm text-red-600 font-medium mt-4">In {children}</div>
             </div>
-            <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div className="overflow-x-auto sm:no-scrollbar sm:-mx-6 lg:-mx-8">
                 <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                     <div className="overflow-hidden">
                         <table
@@ -36,7 +73,7 @@ const SalesRml = ({ children, year, category }) => {
                             <thead
                                 className="text-white font-medium bg-gradient-to-r from-cyan-500 to-blue-500">
                                 <tr>
-                                    <th className="px-3 py-2 border-l border-cyan-500 ">SN</th>
+                                    <th className="px-3 py-2 border-l border-cyan-500">SN</th>
                                     <th className="px-3 py-2 border-x">District</th>
                                     <th className="px-3 py-2 text-end border-x ">Whisky</th>
                                     <th className="px-3 py-2 text-end border-x">Rum</th>
@@ -67,11 +104,11 @@ const SalesRml = ({ children, year, category }) => {
                                 <tr
                                     className="border-b border-neutral-200 transition duration-300 ease-in-out font-bold text-yellow-500 hover:bg-neutral-100 text-end dark:border-white/10 dark:hover:bg-neutral-600">
                                     <td className="whitespace-nowrap text-center border-x px-3 py-2 dark:border-slate-500" colSpan={2}>Total</td>
-                                    <td className="whitespace-nowrap dark:border-slate-500 px-3 py-2 border-x">Otto</td>
-                                    <td className="whitespace-nowrap dark:border-slate-500 px-3 py-2 border-x">Otto</td>
-                                    <td className="whitespace-nowrap dark:border-slate-500 border-x px-3 py-2">@mdo</td>
-                                    <td className="whitespace-nowrap dark:border-slate-500 px-3 py-2 border-x">Otto</td>
-                                    <td className="whitespace-nowrap border-r px-3 dark:border-slate-500 py-2">@mdo</td>
+                                    <td className="whitespace-nowrap dark:border-slate-500 px-3 py-2 border-x">{totalWhisky}</td>
+                                    <td className="whitespace-nowrap dark:border-slate-500 px-3 py-2 border-x">{totalRum}</td>
+                                    <td className="whitespace-nowrap dark:border-slate-500 px-3 py-2 border-x">{totalVodka}</td>
+                                    <td className="whitespace-nowrap dark:border-slate-500 px-3 py-2 border-x">{totalgin}</td>
+                                    <td className="whitespace-nowrap border-r px-3 dark:border-slate-500 py-2">{total}</td>
                                 </tr>
                             </tfoot>
                         </table>

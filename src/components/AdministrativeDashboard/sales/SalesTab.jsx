@@ -11,7 +11,7 @@ const SalesTab = ({ children }) => {
     // console.log(context.year, context.category);
 
     return (
-        <div className='p-4 w-full h-full overflow-y-auto  no-scrollbar'>
+        <div className='p-4 w-full h-full overflow-auto sm:no-scrollbar'>
             <div className='flex justify-between items-end'>
                 <h2 className="text-2xl text-slate-800 font-bold dark:text-white">Sales</h2>
                 <div className="text-sm text-red-600 font-medium mt-4">In {children}</div>
@@ -19,7 +19,7 @@ const SalesTab = ({ children }) => {
 
             <CardSection year={context.year} category={children} />
 
-            <div className='my-4'>
+            <div className='my-4 overflow-auto sm:no-scrollbar'>
                 <SalesCountryLiquor year={context.year} category={children}>{children}</SalesCountryLiquor>
                 <SalesBeer year={context.year} category={children}>{children}</SalesBeer>
                 <SalesRml year={context.year} category={children}>{children}</SalesRml>

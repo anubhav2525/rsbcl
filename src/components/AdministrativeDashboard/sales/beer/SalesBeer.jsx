@@ -49,12 +49,12 @@ const SalesBeer = ({ children, year, category }) => {
     }, [salesBeer]);
 
     return (
-        <div className="flex flex-col my-4 p-2 bg-white dark:bg-slate-800 rounded-md shadow-xl">
+        <div className="flex flex-col my-4 p-2 bg-white dark:bg-slate-800 overflow-x-auto sm:no-scrollbar rounded-md shadow-xl">
             <div className='flex justify-between items-end px-2'>
                 <h2 className="text-xl text-slate-800 font-bold dark:text-white">Beer</h2>
                 <div className="text-sm text-red-600 font-medium mt-4">In {children}</div>
             </div>
-            <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div className="overflow-x-auto sm:no-scrollbar sm:-mx-6 lg:-mx-8">
                 <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                     <div className="overflow-hidden">
                         <table
