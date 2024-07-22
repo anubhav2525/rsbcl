@@ -1,19 +1,32 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import Spinner from '../../../Loader/Spinner';
 
 const RevenueBeer = ({ year }) => {
+
+    // loader
+    const [loading, setLoading] = useState(true);
+
     // api call    
     const [revenueBeer, setrevenueBeer] = useState([]);
+
     useEffect(() => {
-        axios.get(`/api/v1/revenue/beer?year=${year}`) // Use the proxied URL
-            .then((res) => {
-                setrevenueBeer(res.data);
-                // console.log('Response data:', res.data); // Log the response data
-            })
-            .catch((error) => {
+        const getData = async () => {
+            try {
+                const response = await axios.get(`/api/v1/revenue/beer?year=${year}`) // Use the proxied URL
+                setrevenueBeer(response.data)
+
+            }
+            catch (error) {
                 console.error('Error:', error); // Log any errors
-            });
-    }, [year]);
+            }
+            finally {
+                setLoading(false);
+            }
+        }
+        setTimeout(getData, 5000);
+
+    }, [year])
 
     // console.log("revernue beer", year)
     // console.log(revenueBeer)
@@ -126,7 +139,15 @@ const RevenueBeer = ({ year }) => {
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody className='w-full'>
+
+                                {/* {
+                                    loading &&
+                                    <div className='w-full flex items-center justify-center'>
+                                        <Spinner />
+                                    </div>
+                                } */}
+
                                 {
                                     revenueBeer.map((item, index) => {
                                         return (
@@ -144,7 +165,6 @@ const RevenueBeer = ({ year }) => {
                                             </tr>
                                         )
                                     })
-
                                 }
 
                             </tbody>

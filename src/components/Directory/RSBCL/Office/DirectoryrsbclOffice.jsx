@@ -65,6 +65,7 @@ const DirectoryrsbclOffice = () => {
 
             {/* Heading  */}
             <h2 className="mb-4 text-2xl font-extrabold leading-none text-gray-600 md:text-3xl dark:text-slate-300 tracking-wide">RSBCL Head Office</h2>
+            
             <DirectoryrsbclTable data={office} />
         </div>
     )

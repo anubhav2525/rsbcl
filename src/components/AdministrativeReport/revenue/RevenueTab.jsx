@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import CardSection from '../CardSection'
 import RevenueImfl from './imfl/RevenueImfl'
 import RevenueRml from './rml/RevenueRml'
@@ -7,6 +7,11 @@ import RevenueCountryLiquor from "./countryLiquor/RevenueCountryLiquor"
 import { currentYear } from '../../../context/administrativeDashboard/CurrentYear'
 
 const RevenueTab = () => {
+
+    // card
+    const [category, setcategory] = useState("");
+    const [cardname, setcardname] = useState("");
+
     const context = useContext(currentYear);
     return (
         <div className='p-4 w-full h-full overflow-y-aut0 overflow-x-auto sm:no-scrollbar'>

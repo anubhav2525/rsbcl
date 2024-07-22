@@ -29,6 +29,7 @@ const DirectoryrsgsmSugarmill = () => {
     if (loading) {
         return <Spinner />;
     }
+    
     return (
         <div className="w-full mx-auto px-4 py-4 md:w-[90%]">
             {/* breadcrumb */}
@@ -63,7 +64,9 @@ const DirectoryrsgsmSugarmill = () => {
 
             {/* Heading  */}
             <h2 className="mb-4 text-2xl font-extrabold leading-none text-gray-600 md:text-3xl dark:text-slate-300 tracking-wide">RSGSM Sugar Mill</h2>
+
             <p className="tracking-wider text-center text-gray-500 md:text-lg dark:text-gray-400">RSGSM Sugar Mill</p>
+            
             <DirectoryrsgsmSugarmillTable data={office} />
         </div>
     )

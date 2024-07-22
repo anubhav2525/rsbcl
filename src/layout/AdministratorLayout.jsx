@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../components/Header/Header'
 import Navbar from '../components/Navbar.jsx/Navbar'
-import AdministrativeDashboard from '../components/AdministrativeDashboard/AdministrativeDashboard'
+import AdministrativeReport from '../components/AdministrativeReport/AdministrativeReport'
 
 const AdministratorLayout = () => {
     return (
@@ -11,7 +11,7 @@ const AdministratorLayout = () => {
                 <Navbar />
             </header>
             <main className='bg-white dark:bg-slate-950 max-h-screen w-full'>
-                <AdministrativeDashboard />
+                <AdministrativeReport />
             </main>
         </div>
     )

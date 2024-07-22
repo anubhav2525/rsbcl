@@ -20,7 +20,6 @@ const DirectoryExciseOffice = () => {
         } else if (offices == 'circle-office') {
             setofficeName("Circle Office")
         }
-
     }, [offices]);
 
     // loader

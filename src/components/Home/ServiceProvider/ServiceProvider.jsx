@@ -106,7 +106,7 @@ const ServiceProvider = () => {
                 <div className='w-full'>
                     <div className="grid grid-cols-1 gap-y-4 mt-6 sm:mt-0">
                         {buttons.map((button, index) => (
-                            <button key={index} className={`${button.color} w-full flex justify-between items-center text-white text-start text-xl font-bold py-2 h-16 px-4 rounded-md shadow-xl hover:opacity-75`}>
+                            <button key={index} className={`${button.color} w-full flex justify-between items-center text-white text-start text-xl font-bold py-2 h-16 px-4 rounded-md shadow-xl hover:opacity-80`}>
                                 <div>{button.label}</div>
                                 <div>{button.svg}</div>
                             </button>
