@@ -61,7 +61,7 @@ const AdministrativeReport = () => {
                       </form>
                     </div>
 
-                    {/* revenue button  */}
+                    {/* dashboard button  */}
                     <div className='w-full '>
                       <button type="button" onClick={() => setActiveContainer(0)} className="text-white w-full bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br font-medium rounded-md shadow-lg text-base px-5 py-2">
                         <div className='flex gap-x-4 items-center'>
@@ -96,7 +96,7 @@ const AdministrativeReport = () => {
                           </div>
                         </div>
                       </button>
-                    </div>
+                    </div>1
 
                     {
                       salesOption &&
