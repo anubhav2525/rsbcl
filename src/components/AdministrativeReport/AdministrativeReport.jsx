@@ -96,7 +96,7 @@ const AdministrativeReport = () => {
                           </div>
                         </div>
                       </button>
-                    </div>1
+                    </div>
 
                     {
                       salesOption &&

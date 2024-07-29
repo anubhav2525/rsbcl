@@ -5,6 +5,8 @@ import { Navigate } from 'react-router-dom';
 // layouts
 import WithNav from '../layout/WithNav';
 import AdministratorLayout from "../layout/AdministratorLayout";
+import SidebarLayout from "../layout/SidebarLayout"
+import SinglePage from '../layout/SinglePage';
 
 /* ---- components ----- */
 // contact
@@ -43,13 +45,25 @@ import DirectoryrsgsmSugarmill from '../components/Directory/RSGSM/SugarMill/Dir
 
 // Administrative Report
 import AdministrativeReport from '../components/AdministrativeReport/AdministrativeReport';
+
+// Error 404
 import Error404 from '../Error/Error404/Error404';
+
+// authentication pages
 import Login from '../components/AuthForms/Login/Login';
-import SinglePage from '../layout/SinglePage';
 import Forget from '../components/AuthForms/Forget/Forget';
 import Reset from '../components/AuthForms/Reset/Reset';
+
 import Signup from '../components/AuthForms/Signup/Signup';
-import FullPage from '../authenticated/FullPage';
+
+import Dashboard from '../authenticated/components/Dashboard/Dashboard';
+import Sales from '../authenticated/components/Sales/Sales';
+import Revenue from '../authenticated/components/Revenue/Revenue';
+import Requirement from '../authenticated/components/Requirement/Requirement';
+import MobileApp from '../authenticated/components/MobileApp/MobileApp';
+import Employee from '../authenticated/components/Employee/Employee';
+import ContactPage from '../authenticated/components/ContactUs/ContactPage';
+import DirectoryPage from '../authenticated/components/Directory/DirectoryPage';
 
 //  checking authentication using local storage
 const isAuthenticated = () => {
@@ -62,146 +76,177 @@ const PrivateRoute = ({ element }) => {
 };
 
 // creating routes
-export const routes = createBrowserRouter([
-    {
-        path: "/",
-        element: <WithNav />,
-        children: [
-            // Home 
-            {
-                path: "",
-                element: <>
-                    <Carousel />
-                    <Home />
-                </>
-            },
+export const routes = createBrowserRouter(
+    [
+        {
+            path: "/",
+            element: <WithNav />,
+            children: [
+                // Home 
+                {
+                    path: "",
+                    element: <>
+                        <Carousel />
+                        <Home />
+                    </>
+                },
 
-            // contact
-            {
-                path: "contact",
-                element: <Contact />
-            },
+                // contact
+                {
+                    path: "contact",
+                    element: <Contact />
+                },
 
-            /** About  */
-            // excise
-            {
-                path: "about-excise-introduction",
-                element: <AboutExciseIntroduction />
-            }, {
-                path: "about-excise-organization",
-                element: <AboutExciseOrganisationSetup />
-            },
+                /** About  */
+                // excise
+                {
+                    path: "about-excise-introduction",
+                    element: <AboutExciseIntroduction />
+                },
+                {
+                    path: "about-excise-organization",
+                    element: <AboutExciseOrganisationSetup />
+                },
 
-            // about RSBCL
-            {
-                path: "about-rsbcl-introduction",
-                element: <AboutrsbclIntroduction />
-            },
-            {
-                path: "about-rsbcl-directors",
-                element: <AboutrsbclDirectors />
-            },
-            {
-                path: "about-rsbcl-organization",
-                element: <AboutrsbclOrganisation />
-            },
-            {
-                path: "about-rsbcl-memorandom",
-                element: <AboutrsbclMenorandum />
-            },
+                // about RSBCL
+                {
+                    path: "about-rsbcl-introduction",
+                    element: <AboutrsbclIntroduction />
+                },
+                {
+                    path: "about-rsbcl-directors",
+                    element: <AboutrsbclDirectors />
+                },
+                {
+                    path: "about-rsbcl-organization",
+                    element: <AboutrsbclOrganisation />
+                },
+                {
+                    path: "about-rsbcl-memorandom",
+                    element: <AboutrsbclMenorandum />
+                },
 
-            // about RSGSM
-            {
-                path: "about-rsgsm",
-                element: <Aboutrsgsm />
-            },
+                // about RSGSM
+                {
+                    path: "about-rsgsm",
+                    element: <Aboutrsgsm />
+                },
 
-            /** Directory */
-            // excise
-            {
-                path: "directory-excise/:offices",
-                element: <DirectoryExciseOffice />
-            },
+                /** Directory */
+                // excise
+                {
+                    path: "directory-excise/:offices",
+                    element: <DirectoryExciseOffice />
+                },
 
-            // directory rsgsm
-            // directory rsgsm head office
-            {
-                path: "directory-rsgsm-office",
-                element: <DirectoryrsgsmOffice />
-            },
+                // directory rsgsm
+                // directory rsgsm head office
+                {
+                    path: "directory-rsgsm-office",
+                    element: <DirectoryrsgsmOffice />
+                },
 
-            // directory rsgsm depots
-            // {
-            //     path: "directory-rsgsm-depots",
-            //     element: 
-            // },
+                // directory rsgsm depots
+                // {
+                //     path: "directory-rsgsm-depots",
+                //     element: 
+                // },
 
-            // directory rsgsm reduction center
-            {
-                path: "directory-rsgsm-reduction-center",
-                element: <DirectoryrsgsmReduction />
-            },
+                // directory rsgsm reduction center
+                {
+                    path: "directory-rsgsm-reduction-center",
+                    element: <DirectoryrsgsmReduction />
+                },
 
-            // directory rsgsm sugar mill
-            {
-                path: "directory-rsgsm-sugar-mill",
-                element: <DirectoryrsgsmSugarmill />
-            },
+                // directory rsgsm sugar mill
+                {
+                    path: "directory-rsgsm-sugar-mill",
+                    element: <DirectoryrsgsmSugarmill />
+                },
 
-            // directory rsbcl
-            // directory rsbcl depots
-            {
-                path: "directory-rsbcl-depots",
-                element: <DirectoryrsbclDepots />
-            },
+                // directory rsbcl
+                // directory rsbcl depots
+                {
+                    path: "directory-rsbcl-depots",
+                    element: <DirectoryrsbclDepots />
+                },
 
-            // directory rsbcl depots
-            {
-                path: "directory-rsbcl-head-office",
-                element: <DirectoryrsbclOffice />
-            }
-        ]
-    },
-    {
-        path: "administrative-report",
-        element: <AdministratorLayout />,
-        children: [
-            {
-                path: "",
-                element: <AdministrativeReport />
-            }
-        ]
-    },
-    {
-        path: "*",
-        element: <Error404 />
-    },
-    // all authenticated or private route 
-    {
-        path: "/auth/",
-        element: <SinglePage />,
+                // directory rsbcl depots
+                {
+                    path: "directory-rsbcl-head-office",
+                    element: <DirectoryrsbclOffice />
+                }
+            ]
+        },
+        {
+            path: "administrative-report",
+            element: <AdministratorLayout />,
+            children: [
+                {
+                    path: "",
+                    element: <AdministrativeReport />
+                }
+            ]
+        },
+        {
+            path: "*",
+            element: <Error404 />
+        },
+        // all authenticated or private route 
+        {
+            path: "/auth/",
+            element: <SinglePage />,
 
-        children: [
-            {
-                path: "login",
-                element: <Login />
-            }, {
-                path: "forget",
-                element: <Forget />
-            }, {
-                path: "reset",
-                element: <Reset />
-            }, {
-                path: "new-account",
-                element: <Signup />
-            },
-            {
-                path: "dashboard",
-                element: <FullPage />
-                // element: <PrivateRoute element={<FullPage />} />
-            }
+            children: [
+                {
+                    path: "login",
+                    element: <Login />
+                }, {
+                    path: "forget",
+                    element: <Forget />
+                }, {
+                    path: "reset",
+                    element: <Reset />
+                }, {
+                    path: "new-account",
+                    element: <Signup />
+                }
+            ]
+        },
 
-
-        ]
-    }
-])
+        {
+            path: "/authenticated/",
+            element: <SidebarLayout />,
+            children: [
+                {
+                    path: "dashboard",
+                    element: <Dashboard />
+                },
+                {
+                    path: "sales",
+                    element: <Sales />
+                }, {
+                    path: "revenue",
+                    element: <Revenue />
+                }, {
+                    path: "requirement",
+                    element: <Requirement />
+                }, {
+                    path: "mobile-app",
+                    element: <MobileApp />
+                }, {
+                    path: "employee",
+                    element: <Employee />
+                }, {
+                    path: "contact",
+                    element: <ContactPage />
+                }, {
+                    path: "directory",
+                    element: <DirectoryPage />
+                }, {
+                    path: "*",
+                    element: <Error404 />
+                }
+            ]
+        }
+    ])

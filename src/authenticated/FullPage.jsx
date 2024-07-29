@@ -3,9 +3,9 @@ import Avatar from './components/Avatar/Avatar';
 import Header from './components/Header/Header';
 import SalesPage from "./components/Sales/SalesPage";
 import RevenuePage from "./components/Revenue/RevenuePage";
-import RequirementPage from "./components/Requirement/RequirementPage";
+import RequirementPage from "./components/Requirement/Requirement";
 import ProductionPage from "./components/Production/ProductionPage";
-import MobileAppPage from "./components/MobileApp/MobileAppPage";
+import MobileAppPage from "./components/MobileApp/MobileApp";
 import Dashboard from "./components/Dashboard/Dashboard";
 
 const FullPage = () => {
@@ -301,7 +301,7 @@ const FullPage = () => {
                 <div className='w-full hidden md:flex'>
                     <Header />
                 </div>
-                <div className='p-2 bg-slate-50 rounded-xl'>
+                <div className='p-2 bg-slate-50 dark:bg-slate-950 rounded-xl'>
                     {activeContainer === 0 && <Dashboard />}
 
                     {activeContainer === 1 && <SalesPage />}

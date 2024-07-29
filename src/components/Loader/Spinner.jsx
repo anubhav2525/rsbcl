@@ -4,7 +4,7 @@ import "./Spinner.css"
 
 const Spinner = () => {
   return (
-    <div className='flex w-full justify-center items-center'>
+    <div className='flex w-full min-h-full justify-center items-center'>
       <div className="loader">
         <span className="loader-text">loading</span>
         <span className="load"></span>

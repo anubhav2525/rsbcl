@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const SalesShortcut = () => {
+const RevenueShortcut = () => {
     const [isActive, setisActive] = useState(false);
     return (
         <div className="fixed bottom-3 right-3 md:bottom-4 md:right-6 flex flex-col items-end">
@@ -22,4 +22,4 @@ const SalesShortcut = () => {
     )
 }
 
-export default SalesShortcut
+export default RevenueShortcut
