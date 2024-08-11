@@ -2,7 +2,7 @@ import React from 'react'
 
 const DirectoryrsbclTable = ({data}) => {
     return (
-        <div className=" mx-auto rounded-lg p-2">
+        <div className="mx-auto rounded-lg p-2">
             <div className="relative overflow-x-auto">
                 <table className="min-w-full bg-white dark:bg-gray-800 dark:shadow-lg text-left rounded-md">
                     <thead>

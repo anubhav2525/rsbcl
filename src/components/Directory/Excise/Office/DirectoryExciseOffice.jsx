@@ -31,13 +31,8 @@ const DirectoryExciseOffice = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const response = await axios.get("https://jsonplaceholder.typicode.com/todos");// Use the proxied URL
-                /*
-                response data keys->
-                    sno, name, designation, mobileNo, stdCode, office, faxNo, email
-                */
+                const response = await axios.get("https://jsonplaceholder.typicode.com/todos");// Use the proxied URL            
                 setofficeContacts(response.data);
-                console.log(officeContacts);
             }
             catch (error) {
                 console.error('Error:', error); // Log any errors
@@ -67,7 +62,7 @@ const DirectoryExciseOffice = () => {
                     </li>
                     <li aria-current="page">
                         <div className="flex items-center">
-                            <svg class="rtl:rotate-180  w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <svg className="rtl:rotate-180  w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 9 4-4-4-4" />
                             </svg>
                             <span className="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">Directory</span>

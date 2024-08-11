@@ -64,6 +64,9 @@ import MobileApp from '../authenticated/components/MobileApp/MobileApp';
 import Employee from '../authenticated/components/Employee/Employee';
 import ContactPage from '../authenticated/components/ContactUs/ContactPage';
 import DirectoryPage from '../authenticated/components/Directory/DirectoryPage';
+import MobileAppAdd from '../authenticated/components/MobileApp/MobileAppAdd';
+import MobileAppUpdate from '../authenticated/components/MobileApp/MobileAppUpdate';
+import ContainerLayout from '../layout/ContainerLayout';
 
 //  checking authentication using local storage
 const isAuthenticated = () => {
@@ -233,7 +236,22 @@ export const routes = createBrowserRouter(
                     element: <Requirement />
                 }, {
                     path: "mobile-app",
-                    element: <MobileApp />
+                    // element: <MobileApp />,
+                    element: <ContainerLayout />,
+                    children: [
+                        {
+                            path: "",
+                            element: <MobileApp />
+                        },
+                        {
+                            path: "add",
+                            element: <MobileAppAdd />
+                        },
+                        {
+                            path: "edit/id/:id",
+                            element: <MobileAppUpdate />
+                        }
+                    ]
                 }, {
                     path: "employee",
                     element: <Employee />

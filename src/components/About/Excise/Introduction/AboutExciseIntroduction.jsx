@@ -51,7 +51,7 @@ const AboutExciseIntroduction = () => {
             {/* lists */}
 
             <h4 className="my-4 text-xl font-medium leading-none text-gray-600 md:text-3xl dark:text-slate-300 tracking-wide">Excise Introduction</h4>
-            <ul class="py-2 text-xs md:text-sm text-left sm:px-4 text-gray-700 dark:text-gray-300 space-y-1 list-disc list-inside">
+            <ul className="py-2 text-xs md:text-sm text-left sm:px-4 text-gray-700 dark:text-gray-300 space-y-1 list-disc list-inside">
                 <li>
                     At least 10 characters (and up to 100 characters)
                 </li>

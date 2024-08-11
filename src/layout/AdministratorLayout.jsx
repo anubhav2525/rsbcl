@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../components/Header/Header'
-import Navbar from '../components/Navbar.jsx/Navbar'
+import Navbar from '../components/Navbar/Navbar'
 import AdministrativeReport from '../components/AdministrativeReport/AdministrativeReport'
 
 const AdministratorLayout = () => {

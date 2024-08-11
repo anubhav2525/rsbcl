@@ -8,7 +8,7 @@ const Sidebar = () => {
     return (
         <div className='h-full'>
             {/* Mobile menu button */}
-            <div className="md:hidden p-2 min-h-screen">
+            <div className="md:hidden p-2 ">
                 <div className='flex justify-between'>
                     <button onClick={() => setIsOpen(!isOpen)} className="text-gray-700 dark:text-slate-300 focus:outline-none">
                         {
@@ -34,7 +34,7 @@ const Sidebar = () => {
             </div>
 
             {/* Sidebar */}
-            <aside className={`relative ${isOpen ? 'block' : 'hidden'} md:flex md:border-r-2  min-h-screen no-scrollbar flex-col bg-white bg-clip-border overflow-y-auto dark:bg-slate-900 dark:border-r-slate-500 px-3  text-gray-700 transition-transform md:transform-none`}>
+            <aside className={`relative ${isOpen ? 'block' : 'hidden'} md:flex  sm:min-h-screen no-scrollbar flex-col bg-white bg-clip-border overflow-y-auto dark:bg-slate-900  px-3 text-gray-700 transition-transform md:transform-none`}>
                 <div className="py-1">
                     <h5 className="block px-3 font-sans text-slate-900 dark:text-white text-xl antialiased font-semibold tracking-normal text-blue-gray-900 capitalize">
                         {/* {department} */}
@@ -84,7 +84,7 @@ const Sidebar = () => {
                                         <div className='flex justify-between items-center'>
                                             <div className='flex gap-x-2 items-center'>
                                                 <div>
-                                                    <svg class="w-6 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                    <svg className="w-6 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13.6 16.733c.234.269.548.456.895.534a1.4 1.4 0 0 0 1.75-.762c.172-.615-.446-1.287-1.242-1.481-.796-.194-1.41-.861-1.241-1.481a1.4 1.4 0 0 1 1.75-.762c.343.077.654.26.888.524m-1.358 4.017v.617m0-5.939v.725M4 15v4m3-6v6M6 8.5 10.5 5 14 7.5 18 4m0 0h-3.5M18 4v3m2 8a5 5 0 1 1-10 0 5 5 0 0 1 10 0Z" />
                                                     </svg>
                                                 </div>
@@ -107,7 +107,7 @@ const Sidebar = () => {
                                     >
                                         <div className='flex gap-x-2 items-center'>
                                             <div>
-                                                <svg class="w-6 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                <svg className="w-6 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10 3v4a1 1 0 0 1-1 1H5m4 10v-2m3 2v-6m3 6v-3m4-11v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z" />
                                                 </svg>
                                             </div>
@@ -129,7 +129,7 @@ const Sidebar = () => {
                                     >
                                         <div className='flex gap-x-2 items-center'>
                                             <div>
-                                                <svg class="w-6 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                <svg className="w-6 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" strokeLinecap="round" strokeWidth="1.5" d="M4.5 17H4a1 1 0 0 1-1-1 3 3 0 0 1 3-3h1m0-3.05A2.5 2.5 0 1 1 9 5.5M19.5 17h.5a1 1 0 0 0 1-1 3 3 0 0 0-3-3h-1m0-3.05a2.5 2.5 0 1 0-2-4.45m.5 13.5h-7a1 1 0 0 1-1-1 3 3 0 0 1 3-3h3a3 3 0 0 1 3 3 1 1 0 0 1-1 1Zm-1-9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z" />
                                                 </svg>
                                             </div>
@@ -151,7 +151,7 @@ const Sidebar = () => {
                                     >
                                         <div className='flex gap-x-2 items-center'>
                                             <div>
-                                                <svg class="w-6 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                <svg className="w-6 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M6 15h12M6 6h12m-6 12h.01M7 21h10a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1Z" />
                                                 </svg>
 
@@ -174,7 +174,7 @@ const Sidebar = () => {
                                     >
                                         <div className='flex gap-x-2 items-center'>
                                             <div>
-                                                <svg class="w-6 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                <svg className="w-6 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" strokeLinejoin="round" strokeLinecap="round" strokeWidth="1.5" d="M10 3v4a1 1 0 0 1-1 1H5m4 8h6m-6-4h6m4-8v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z" />
                                                 </svg>
 
@@ -197,10 +197,9 @@ const Sidebar = () => {
                                     >
                                         <div className='flex gap-x-2 items-center'>
                                             <div>
-                                                <svg class="w-6 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                <svg className="w-6 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" strokeLinejoin="round" strokeLinecap="round" strokeWidth="1.5" d="M7 6H5m2 3H5m2 3H5m2 3H5m2 3H5m11-1a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2M7 3h11a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm8 7a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
                                                 </svg>
-
                                             </div>
                                             <div>Contact us</div>
                                         </div>
@@ -220,8 +219,8 @@ const Sidebar = () => {
                                     >
                                         <div className='flex gap-x-2 items-center'>
                                             <div>
-                                                <svg class="w-6 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                                <svg className="w-6 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                                                 </svg>
                                             </div>
                                             <div>About us</div>

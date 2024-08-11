@@ -5,7 +5,7 @@ import Header from '../authenticated/components/Header/Header'
 
 const SidebarLayout = () => {
     return (
-        <div className='max-h-screen overflow-y-scroll no-scrollbar'>
+        <div className='max-h-screen overflow-y-scroll no-scrollbar bg-slate-50 dark:bg-slate-900'>
             <div className="flex flex-col md:flex-row h-full">
                 <div className='h-full overflow-auto'>
                     <Sidebar />
@@ -14,7 +14,7 @@ const SidebarLayout = () => {
                     <div className='w-full hidden md:flex'>
                         <Header />
                     </div>
-                    <div className=' w-full bg-slate-50 dark:bg-slate-950 no-scrollbar overflow-auto max-h-[calc(100vh-3rem)]'>
+                    <div className='w-full bg-slate-50 rounded-md dark:border-t dark:border-slate-500 dark:bg-slate-900 no-scrollbar overflow-auto max-h-[calc(100vh-4rem)]'>
                         <Outlet />
                     </div>
                 </div>
