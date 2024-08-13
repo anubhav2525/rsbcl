@@ -21,7 +21,7 @@ const MobileAppUpdate = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`/api/v1/auth/mobile-app/${id}`);
+                const response = await axios.get(`/api/v1/auth/mobile-app/id/${id}`);
                 const data = response.data;
 
                 // Populate the form with fetched data
@@ -108,10 +108,10 @@ const MobileAppUpdate = () => {
     };
 
     return (
-        <div className='w-full rounded-md md:px-4 py-3 px-2'>
+        <div className='w-full rounded-md md:px-4 py-3 px-2 dark:bg-slate-800'>
             <div className='mb-5 flex justify-between items-center'>
                 <div>
-                    <h3 className="md:text-2xl sm:text-xl text-lg font-bold dark:text-white text-slate-800">Update Mobile Application</h3>
+                    <h3 className="md:text-2xl sm:text-xl text-lg font-medium dark:text-white text-slate-800">Update Mobile Application</h3>
                 </div>
                 <div>
                     <button onClick={() => navigate(-1)} type='button' className="inline-flex items-center px-2 py-1 me-2 text-sm font-medium bg-slate-300 rounded-md dark:bg-slate-600 dark:text-white">
@@ -137,13 +137,9 @@ const MobileAppUpdate = () => {
             }
 
             <form className='w-full p-2' onSubmit={handleSubmit(onSubmit)}>
-                {/* Form fields similar to the MobileAppAdd component */}
-                {/* Application Name, Link, Version, Status, Document, Video, Application Image, Description */}
-                {/* Ensure you use the same validations and input elements as the MobileAppAdd component */}
-                {/* Only difference is the method name on submit */}
-                {/* ... */}
+               
 
-                <button disabled={isSubmitting} type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button>
+                <button disabled={isSubmitting} type="submit" className="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700">Update</button>
             </form>
         </div>
     );

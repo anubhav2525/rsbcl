@@ -88,11 +88,11 @@ const MobileAppAdd = () => {
     };
 
     return (
-        <div className='w-full rounded-md md:px-4 py-3 px-2'>
+        <div className='w-full rounded-md md:px-4 py-3 px-2 dark:bg-slate-800'>
             {/* heading and close  */}
             <div className='mb-5 flex justify-between items-center '>
                 <div>
-                    <h3 className="md:text-2xl sm:text-xl text-lg font-bold dark:text-white text-slate-800">Register Mobile application</h3>
+                    <h3 className="md:text-2xl sm:text-xl text-lg font-medium dark:text-white text-slate-800">Register Mobile application</h3>
                 </div>
                 <div>
                     <button onClick={handleGoBack} type='button' className="inline-flex items-center px-2 py-1 me-2 text-sm font-medium bg-slate-300 rounded-md dark:bg-slate-600 dark:text-white">

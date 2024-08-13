@@ -67,6 +67,9 @@ import DirectoryPage from '../authenticated/components/Directory/DirectoryPage';
 import MobileAppAdd from '../authenticated/components/MobileApp/MobileAppAdd';
 import MobileAppUpdate from '../authenticated/components/MobileApp/MobileAppUpdate';
 import ContainerLayout from '../layout/ContainerLayout';
+import EmployeeUpdate from '../authenticated/components/Employee/EmployeeUpdate';
+import EmployeeAdd from "../authenticated/components/Employee/EmployeeAdd";
+import EmployeeDetails from '../authenticated/components/Employee/EmployeeDetails';
 
 //  checking authentication using local storage
 const isAuthenticated = () => {
@@ -254,7 +257,25 @@ export const routes = createBrowserRouter(
                     ]
                 }, {
                     path: "employee",
-                    element: <Employee />
+                    element: <ContainerLayout />,
+                    children: [
+                        {
+                            path: "",
+                            element: <Employee />
+                        },
+                        {
+                            path: "add",
+                            element: <EmployeeAdd />
+                        },
+                        {
+                            path: "details/id/:id",
+                            element: <EmployeeDetails />
+                        },
+                        {
+                            path: "edit/id/:id",
+                            element: <EmployeeUpdate />
+                        },
+                    ]
                 }, {
                     path: "contact",
                     element: <ContactPage />

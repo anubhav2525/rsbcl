@@ -69,6 +69,7 @@ const MobileApp = () => {
                 });
         }
     };
+
     // first time loading
     useEffect(() => {
         fetchData();
@@ -115,14 +116,14 @@ const MobileApp = () => {
 
     return (
         <div className='h-full w-full p-4 md:px-2 '>
-            <div className='mb-3 w-full grid grid-cols-1 md:grid-cols-2 gap-2'>
-                <div className='h-10 '>
+            <div className='mb-3 w-full grid grid-cols-1 md:grid-cols-3 gap-2'>
+                <div className='h-8'>
                     <form className='w-full h-full flex justify-between items-end gap-1'>
                         {/* search icon  */}
                         <div className='w-full h-full'>
-                            <div className="relative flex items-center w-full h-full rounded-md border dark:border-slate-600  border-slate-300 focus-within:shadow-lg bg-white dark:bg-slate-700 overflow-hidden">
-                                <div className="grid place-items-center h-full w-12 text-gray-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="relative flex items-center w-full h-full rounded border dark:border-slate-600  border-slate-300 focus-within:shadow-lg bg-white dark:bg-slate-700 overflow-hidden">
+                                <div className="grid place-items-center h-full w-8 text-gray-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                     </svg>
                                 </div>
@@ -134,9 +135,9 @@ const MobileApp = () => {
                         </div>
                         {/* submit button  */}
                         <div className='h-full'>
-                            <button type="submit" className="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white rounded-md shadow-md hover:opacity-90 px-2 h-full">
+                            <button type="submit" className="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white rounded shadow-md hover:opacity-90 px-2 h-full">
                                 <div className="grid place-items-center px-2 text-gray-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                     </svg>
                                 </div>
@@ -144,12 +145,12 @@ const MobileApp = () => {
                         </div>
                     </form>
                 </div>
-                <div className='flex justify-end items-center gap-x-2'>
+                <div className='flex justify-end items-center gap-x-1 col-span-2'>
                     {/* add button  */}
                     <div>
-                        <Link to="/authenticated/mobile-app/add" className="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white rounded-md shadow-md hover:opacity-90 py-2 px-3 h-full text-xs sm:text-sm flex justify-between items-center gap-x-2">
+                        <Link to="/authenticated/mobile-app/add" className="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white rounded shadow-md hover:opacity-90 py-2 px-3 h-full text-xs flex justify-between items-center gap-x-2">
                             <div>
-                                <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M5 12h14m-7 7V5" />
                                 </svg>
                             </div>
@@ -160,10 +161,10 @@ const MobileApp = () => {
                     </div>
                     {/* Refresh button */}
                     <div>
-                        <button type="button" onClick={fetchData} className="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white rounded-md shadow-md hover:opacity-90 py-2 px-3 h-full text-xs sm:text-sm flex justify-between items-center gap-x-2">
+                        <button type="button" onClick={fetchData} className="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white rounded shadow-md hover:opacity-90 py-2 px-3 h-full text-xs flex justify-between items-center gap-x-2">
                             <div>
-                                <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                    <path stroke="currentColor" strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" d="M17.651 7.65a7.131 7.131 0 0 0-12.68 3.15M18.001 4v4h-4m-7.652 8.35a7.13 7.13 0 0 0 12.68-3.15M6 20v-4h4" />
+                                <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" strokeLinejoin="round" strokeLinecap="round" strokeWidth="1.5" d="M17.651 7.65a7.131 7.131 0 0 0-12.68 3.15M18.001 4v4h-4m-7.652 8.35a7.13 7.13 0 0 0 12.68-3.15M6 20v-4h4" />
                                 </svg>
 
                             </div>
@@ -172,10 +173,10 @@ const MobileApp = () => {
                             </div>
                         </button>
                     </div>
-
+                    {/* filterOption */}
                     <div className=''>
-                        <button type="button" onClick={() => setfilterOption(!filterOption)} className="bg-gradient-to-r relative text-xs sm:text-sm from-blue-500 via-blue-600 to-blue-700 text-white rounded-md shadow-md hover:opacity-90 py-2 px-3 h-full flex justify-between items-center gap-x-2">
-                            <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <button type="button" onClick={() => setfilterOption(!filterOption)} className="bg-gradient-to-r relative text-xs from-blue-500 via-blue-600 to-blue-700 text-white rounded shadow-md hover:opacity-90 py-2 px-3 h-full flex justify-between items-center gap-x-2">
+                            <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" strokeLinecap="round" strokeWidth="1.5" d="M20 6H10m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4m16 6h-2m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4m16 6H10m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4" />
                             </svg>
                             <div>

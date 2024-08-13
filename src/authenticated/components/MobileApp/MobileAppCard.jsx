@@ -22,7 +22,7 @@ const MobileAppCard = ({ props, setAlertMsg, fetchData }) => {
     };
 
     return (
-        <div className=" cursor-pointer bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div className=" cursor-pointer bg-white border border-gray-200 rounded-md shadow dark:bg-gray-800 dark:border-gray-700">
             <div>
                 <div className='w-full'>
                     <div className='relative w-full h-48'>
@@ -35,7 +35,7 @@ const MobileAppCard = ({ props, setAlertMsg, fetchData }) => {
 
                         {/* <!-- Dropdown menu --> */}
                         {
-                            dotIcon && <div className="z-10 absolute top-10 right-3 rounded-md shadow bg-white/80">
+                            dotIcon && <div className="z-10 absolute top-10 right-3 rounded-md shadow bg-white/80 dark:bg-slate-800/80">
                                 <ul className="py-2 w-24 text-sm text-gray-700 dark:text-gray-200">
                                     <li>
                                         <Link to={`/authenticated/mobile-app/edit/id/${props.id}`} className="block p-2 hover:bg-gray-100 text-xs dark:hover:bg-gray-600 dark:hover:text-white">
@@ -59,7 +59,8 @@ const MobileAppCard = ({ props, setAlertMsg, fetchData }) => {
                                                 </svg>
                                                 </div>
                                                 <div>Delete</div>
-                                            </div></button>
+                                            </div>
+                                        </button>
                                     </li>
                                 </ul>
                             </div>
