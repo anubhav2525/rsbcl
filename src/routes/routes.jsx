@@ -70,6 +70,10 @@ import ContainerLayout from '../layout/ContainerLayout';
 import EmployeeUpdate from '../authenticated/components/Employee/EmployeeUpdate';
 import EmployeeAdd from "../authenticated/components/Employee/EmployeeAdd";
 import EmployeeDetails from '../authenticated/components/Employee/EmployeeDetails';
+import News from '../authenticated/components/NewsActsFocus/News/News';
+import NewsAdd from '../authenticated/components/NewsActsFocus/News/NewsAdd/NewsAdd';
+import NewsUpdate from '../authenticated/components/NewsActsFocus/News/NewsUpdate/NewsUpdate';
+import NewsView from '../authenticated/components/NewsActsFocus/News/NewsView/NewsView';
 
 //  checking authentication using local storage
 const isAuthenticated = () => {
@@ -276,7 +280,31 @@ export const routes = createBrowserRouter(
                             element: <EmployeeUpdate />
                         },
                     ]
-                }, {
+                },
+
+                {
+                    path: "news",
+                    element: <ContainerLayout />,
+                    children: [
+                        {
+                            path: "",
+                            element: <News />
+                        },
+                        {
+                            path: "add",
+                            element: <NewsAdd />
+                        },
+                        {
+                            path: "update/id/:id",
+                            element: <NewsUpdate />
+                        }, {
+                            path: "view/id/:id",
+                            element: <NewsView />
+                        }
+                    ]
+
+                },
+                {
                     path: "contact",
                     element: <ContactPage />
                 }, {

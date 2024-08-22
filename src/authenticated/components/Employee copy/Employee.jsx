@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Alert from '../Popup/Alert'
+import Spinner from '../../../components/Loader/Spinner'
 import EmployeeCard from './EmployeeCard'
 
 const Employee = () => {
@@ -169,7 +170,7 @@ const Employee = () => {
     return (
         <div className='h-full w-full p-4 md:px-2 '>
             <div className="mb-4">
-                <h3 className="text-gray-800 dark:text-white text-2xl font-bold">
+                <h3 className="text-gray-800 text-2xl font-bold">
                     Employee
                     <span class="bg-blue-100 ms-3 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">Default</span>
                 </h3>
@@ -286,9 +287,9 @@ const Employee = () => {
                     }
                 </div>
             </div>
-            <div className="bg-white dark:bg-slate-700 overflow-x-auto shadow-md sm:rounded-sm">
+            <div className=" overflow-x-auto shadow-md sm:rounded-sm">
                 <table className="w-full rounded-md table-auto text-sm text-left">
-                    <thead className=" dark:bg-slate-800 dark:text-white text-gray-600 font-medium border-b">
+                    <thead className="bg-gray-50 dark:bg-slate-800 dark:text-white text-gray-600 font-medium border-b">
                         <tr>
                             <th className="py-3 px-6">Employee</th>
                             <th className="py-3 px-6">Contact</th>

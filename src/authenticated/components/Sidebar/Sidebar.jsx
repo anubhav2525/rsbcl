@@ -5,6 +5,11 @@ import { NavLink } from 'react-router-dom';
 const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
+    const [maintainence, setmaintainence] = useState(false);
+    const [notice, setnotice] = useState(false);
+
+    // directory
+    const [directory, setdirectory] = useState();
     return (
         <div className='h-full'>
             {/* Mobile menu button */}
@@ -34,7 +39,7 @@ const Sidebar = () => {
             </div>
 
             {/* Sidebar */}
-            <aside className={`relative ${isOpen ? 'block' : 'hidden'} md:flex  sm:min-h-screen no-scrollbar flex-col bg-white bg-clip-border overflow-y-auto dark:bg-slate-900  px-3 text-gray-700 transition-transform md:transform-none`}>
+            <aside className={`relative ${isOpen ? 'block' : 'hidden'} md:flex sm:min-h-screen no-scrollbar flex-col bg-white bg-clip-border overflow-y-auto dark:bg-slate-900 px-3 text-gray-700 transition-transform md:transform-none`}>
                 <div className="py-1">
                     <h5 className="block px-3 font-sans text-slate-900 dark:text-white text-xl antialiased font-semibold tracking-normal text-blue-gray-900 capitalize">
                         {/* {department} */}
@@ -205,6 +210,185 @@ const Sidebar = () => {
                                         </div>
                                     </NavLink>
                                 </div>
+
+                                {/* notice us button */}
+                                <button type="button"
+                                    onClick={() => setnotice(!notice)}
+                                    className={`w-full block font-medium from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br rounded-md ease-in-out hover:shadow transition-all dark:text-white hover:text-white px-2 py-2 ${maintainence
+                                        ? "bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white rounded-md shadow"
+                                        : ""
+                                        }`
+                                    }
+                                >
+                                    <div className='flex items-center justify-between'>
+                                        <div className='flex gap-x-2 items-center'>
+                                            <div>
+                                                <svg className="w-6 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                    <path stroke="currentColor" strokeLinejoin="round" strokeLinecap="round" strokeWidth="1.5" d="M19 7h1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h11.5M7 14h6m-6 3h6m0-10h.5m-.5 3h.5M7 7h3v3H7V7Z" />
+                                                </svg>
+
+                                            </div>
+                                            <div>Notice</div>
+                                        </div>
+                                        <div>
+                                            <svg className="w-4 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 9-7 7-7-7" />
+                                            </svg>
+
+                                        </div>
+                                    </div>
+                                </button>
+                                {
+                                    notice && <div className='w-full pl-6 gap-y-1 flex-col flex text-xs '>
+                                        <NavLink
+                                            to='/authenticated/news'
+                                            className={({ isActive }) =>
+                                                ` from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br rounded-md ease-in-out hover:shadow transition-all dark:text-white hover:text-white px-2 py-2 ${isActive
+                                                    ? "bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white rounded-md shadow"
+                                                    : ""
+                                                }`
+                                            }
+                                        >
+                                            <div className='flex gap-x-2 items-center'>
+                                                <div>
+                                                    <svg className="w-5 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                        <path stroke="currentColor" strokeLinejoin="round" strokeLinecap="round" strokeWidth="1.5" d="M7 6H5m2 3H5m2 3H5m2 3H5m2 3H5m11-1a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2M7 3h11a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm8 7a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
+                                                    </svg>
+                                                </div>
+                                                <div>
+                                                    News
+                                                </div>
+                                            </div>
+                                        </NavLink>
+                                        <NavLink
+                                            to='/authenticated/acts'
+                                            className={({ isActive }) =>
+                                                `  from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br rounded-md ease-in-out hover:shadow transition-all dark:text-white hover:text-white px-2 py-2 ${isActive
+                                                    ? "bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white rounded-md shadow"
+                                                    : ""
+                                                }`
+                                            }
+                                        >
+                                            <div className='flex gap-x-2 items-center'>
+                                                <div>
+                                                    <svg className="w-5 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                        <path stroke="currentColor" strokeLinejoin="round" strokeLinecap="round" strokeWidth="1.5" d="M7 6H5m2 3H5m2 3H5m2 3H5m2 3H5m11-1a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2M7 3h11a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm8 7a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
+                                                    </svg>
+                                                </div>
+                                                <div>Acts</div>
+                                            </div>
+                                        </NavLink>
+                                        <NavLink
+                                            to='/authenticated/focus'
+                                            className={({ isActive }) =>
+                                                ` from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br rounded-md ease-in-out hover:shadow transition-all dark:text-white hover:text-white px-2 py-2 ${isActive
+                                                    ? "bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white rounded-md shadow"
+                                                    : ""
+                                                }`
+                                            }
+                                        >
+                                            <div className='flex gap-x-2 items-center'>
+                                                <div>
+                                                    <svg className="w-5 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                        <path stroke="currentColor" strokeLinejoin="round" strokeLinecap="round" strokeWidth="1.5" d="M7 6H5m2 3H5m2 3H5m2 3H5m2 3H5m11-1a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2M7 3h11a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm8 7a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
+                                                    </svg>
+                                                </div>
+                                                <div>Focus</div>
+                                            </div>
+                                        </NavLink>
+                                    </div>
+                                }
+
+
+                                {/* directory  */}
+                                {/* notice us button */}
+                                <button type="button"
+                                    onClick={() => setdirectory(!directory)}
+                                    className={`w-full block font-medium from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br rounded-md ease-in-out hover:shadow transition-all dark:text-white hover:text-white px-2 py-2 ${directory
+                                        ? "bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white rounded-md shadow"
+                                        : ""
+                                        }`
+                                    }
+                                >
+                                    <div className='flex items-center justify-between'>
+                                        <div className='flex gap-x-2 items-center'>
+                                            <div>
+                                                <svg className="w-6 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                    <path stroke="currentColor" strokeLinejoin="round" strokeLinecap="round" strokeWidth="1.5" d="M19 7h1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h11.5M7 14h6m-6 3h6m0-10h.5m-.5 3h.5M7 7h3v3H7V7Z" />
+                                                </svg>
+
+                                            </div>
+                                            <div>Directory</div>
+                                        </div>
+                                        <div>
+                                            <svg className="w-4 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 9-7 7-7-7" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </button>
+                                {
+                                    directory && <div className='w-full pl-6 gap-y-1 flex-col flex text-xs '>
+                                        <NavLink
+                                            to='/authenticated/news'
+                                            className={({ isActive }) =>
+                                                ` from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br rounded-md ease-in-out hover:shadow transition-all dark:text-white hover:text-white px-2 py-2 ${isActive
+                                                    ? "bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white rounded-md shadow"
+                                                    : ""
+                                                }`
+                                            }
+                                        >
+                                            <div className='flex gap-x-2 items-center'>
+                                                <div>
+                                                    <svg className="w-5 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                        <path stroke="currentColor" strokeLinejoin="round" strokeLinecap="round" strokeWidth="1.5" d="M7 6H5m2 3H5m2 3H5m2 3H5m2 3H5m11-1a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2M7 3h11a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm8 7a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
+                                                    </svg>
+                                                </div>
+                                                <div>
+                                                    News
+                                                </div>
+                                            </div>
+                                        </NavLink>
+                                        <NavLink
+                                            to='/authenticated/acts'
+                                            className={({ isActive }) =>
+                                                `  from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br rounded-md ease-in-out hover:shadow transition-all dark:text-white hover:text-white px-2 py-2 ${isActive
+                                                    ? "bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white rounded-md shadow"
+                                                    : ""
+                                                }`
+                                            }
+                                        >
+                                            <div className='flex gap-x-2 items-center'>
+                                                <div>
+                                                    <svg className="w-5 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                        <path stroke="currentColor" strokeLinejoin="round" strokeLinecap="round" strokeWidth="1.5" d="M7 6H5m2 3H5m2 3H5m2 3H5m2 3H5m11-1a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2M7 3h11a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm8 7a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
+                                                    </svg>
+                                                </div>
+                                                <div>Acts</div>
+                                            </div>
+                                        </NavLink>
+                                        <NavLink
+                                            to='/authenticated/focus'
+                                            className={({ isActive }) =>
+                                                ` from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br rounded-md ease-in-out hover:shadow transition-all dark:text-white hover:text-white px-2 py-2 ${isActive
+                                                    ? "bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white rounded-md shadow"
+                                                    : ""
+                                                }`
+                                            }
+                                        >
+                                            <div className='flex gap-x-2 items-center'>
+                                                <div>
+                                                    <svg className="w-5 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                        <path stroke="currentColor" strokeLinejoin="round" strokeLinecap="round" strokeWidth="1.5" d="M7 6H5m2 3H5m2 3H5m2 3H5m2 3H5m11-1a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2M7 3h11a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm8 7a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
+                                                    </svg>
+                                                </div>
+                                                <div>Focus</div>
+                                            </div>
+                                        </NavLink>
+                                    </div>
+                                }
+
+
 
                                 {/* About us */}
                                 <div className='w-full '>
