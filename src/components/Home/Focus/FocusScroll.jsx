@@ -1,4 +1,5 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
+import axios from 'axios';
 
 const FocusScroll = () => {
     const listRef = useRef(null);
@@ -31,52 +32,20 @@ const FocusScroll = () => {
         };
     }, []);
 
-    const items = [
-        {
-            name: "Lorem ipsum dolor sit.",
-            link: ""
-        },
-        {
-            name: "Lorem ipsum dolor sit amet.",
-            link: ""
-        },
-        {
-            name: "Lorem ipsum dolor sit amet. lorem dsf sdf ",
-            link: ""
-        },
-        {
-            name: "Lorem ipsum dolor sit amet. lorem dsf sdf ",
-            link: ""
-        },
-        {
-            name: "Lorem ipsum dolor sit amet. lorem dsf sdf ",
-            link: ""
-        },
-        {
-            name: "Lorem ipsum dolor sit amet. lorem dsf sdf ",
-            link: ""
-        },
-        {
-            name: "Lorem ipsum dolor sit amet. lorem dsf sdf ",
-            link: ""
-        },
-        {
-            name: "Lorem ipsum dolor sit amet. lorem dsf sdf ",
-            link: ""
-        },
-        {
-            name: "Lorem ipsum dolor sit amet. lorem dsf sdf ",
-            link: ""
-        },
-        {
-            name: "Lorem ipsum dolor sit amet. lorem dsf sdf ",
-            link: ""
-        },
-        {
-            name: "Lorem ipsum dolor sit amet. lorem dsf sdf ",
-            link: ""
-        },
-    ]
+    // api fetching 
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`/api/v1/public/inFocuses`);
+                setData(response.data.data);                
+            } catch (error) {
+                console.error("Error fetching news update", error);
+            }
+        };
+        fetchData();
+    }, []);
 
     return (
         <div className="w-full sm:mt-16 border-t">
@@ -85,7 +54,10 @@ const FocusScroll = () => {
                 className="max-h-96 overflow-hidden h-full"
             >
                 <ul className="divide-y divide-gray-200">
-                    {items.map((item, index) => (
+                    {
+                        data.length == 0 && <div className='w-full border-t h-full flex justify-center items-center'>No Content</div>
+                    }
+                    {data.map((item, index) => (
                         <li
                             key={index}
                             className="py-4 px-2 text-center"
@@ -96,7 +68,7 @@ const FocusScroll = () => {
                                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m7 16 4-4-4-4m6 8 4-4-4-4" />
                                     </svg>
                                 </div>
-                                <div className="text-blue-500 text-xs sm:text-sm hover:text-black dark:hover:text-blue-800">{item.name}</div>
+                                <a target="_blank" href={item.links} className="text-blue-500 text-xs sm:text-sm hover:text-black dark:hover:text-blue-800">{item.title}</a>
                             </div>
                         </li>
                     ))}

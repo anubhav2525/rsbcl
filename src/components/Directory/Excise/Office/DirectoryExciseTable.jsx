@@ -1,6 +1,6 @@
 import React from 'react'
 
-const DirectoryExciseTable = ({data}) => {
+const DirectoryExciseTable = ({ data }) => {
     return (
         <div className=" mx-auto rounded-lg p-2">
             <div className="relative overflow-x-auto">
@@ -10,23 +10,31 @@ const DirectoryExciseTable = ({data}) => {
                             <th className="py-2 px-4 border-x hidden md:block border-slate-400"></th>
                             <th className="py-2 px-4 border-x border-slate-400">Name</th>
                             <th className="py-2 px-4 border-x border-slate-400">Designation</th>
-                            <th className="py-2 px-4 border-x border-slate-400">Status</th>
+                            <th className="py-2 px-4 border-x border-slate-400">FAX No.</th>
+                            <th className="py-2 px-4 border-x border-slate-400">Email address</th>
                             <th className="py-2 px-4 border-x border-slate-400">Office Telephone No.</th>
                             <th className="py-2 px-4">Official Address</th>
                         </tr>
                     </thead>
                     <tbody className='text-slate-800 dark:text-slate-300'>
                         {
-                            data.map(item => (
-                                <tr className='text-xs md:text-sm' key={item.id}>
+                            data.length == 0 && <tr>
+                                <th colSpan={6} className='text-base text-center py-8'>No content</th>
+                            </tr>
+                        }
+                        {
+                            data.map((item, index) => (
+                                <tr className='text-xs md:text-sm' key={index}>
                                     <td className='border hidden md:flex border-slate-200 dark:border-slate-400 py-2 px-4  justify-center items-center'>
-                                        <img className="w-8 h-8 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" src="https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659651_1280.png" alt="user image" />
+                                        <img className="w-8 h-8 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" src={item.imageUrl} />
+                                        
                                     </td>
-                                    <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">{item.id}. Ms. Chandni Raina</td>
-                                    <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">Economic Adviser, DEA</td>
-                                    <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">Chairperson</td>
-                                    <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">23092500</td>
-                                    <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">R.No. 40-A, North Block, New Delhi-1.</td>
+                                    <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">{item.sno}. {item.name}</td>
+                                    <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">{item.designation}</td>
+                                    <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">{item.faxNo}</td>
+                                    <td className="border border-slate-200 dark:border-slate-400 py-2 px-4"><a target="_self" className='text-black' href={`mailto:${item.email}`}>{item.email}</a></td>
+                                    <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">{item.stdCode} {item.mobileNo}</td>
+                                    <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">{item.officeAddress}</td>
                                 </tr>
                             ))
                         }

@@ -64,8 +64,8 @@ const ServiceProvider = () => {
                 </span>
                 <h2 className="text-xl my-4 sm:text-3xl font-bold dark:text-white">Service Providers</h2>
             </div>
-            <div className='py-4 px-3 w-full sm:w-[90%] mx-auto grid grid-cols-1 gap-y-4 sm:gap-x-4 sm:grid-cols-3'>
-                <div className='col-span-2'>
+            <div className='py-4 px-3 w-full flex flex-col gap-4'>
+                <div>
                     <div className="bg-white dark:bg-gray-900 p-5 rounded-lg shadow-lg">
                         <div>
                             <h2 className="text-xl text-slate-800 dark:text-slate-300 font-bold mb-4">Liquor & beer supplier</h2>
@@ -104,9 +104,9 @@ const ServiceProvider = () => {
                 </div>
                 {/* buttons */}
                 <div className='w-full'>
-                    <div className="grid grid-cols-1 gap-y-4 mt-6 sm:mt-0">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                         {buttons.map((button, index) => (
-                            <button key={index} className={`${button.color} w-full flex justify-between items-center text-white text-start text-xl font-bold py-2 h-16 px-4 rounded-md shadow-xl hover:opacity-80`}>
+                            <button key={index} className={`${button.color} flex justify-between items-center text-white text-start text-xl font-bold py-2 h-16 px-4 rounded-md shadow-xl hover:opacity-80`}>
                                 <div>{button.label}</div>
                                 <div>{button.svg}</div>
                             </button>

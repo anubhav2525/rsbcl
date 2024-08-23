@@ -1,4 +1,5 @@
 import React from 'react'
+import { organisationSetup } from '../../static_data/Excise/Excise';
 
 const AboutExciseOrganisationSetup = () => {
     const data = [];
@@ -42,29 +43,27 @@ const AboutExciseOrganisationSetup = () => {
                     <table className="min-w-full bg-white dark:bg-gray-800 dark:shadow-lg text-left rounded-md">
                         <thead>
                             <tr className="w-full bg-blue-700 dark:bg-blue-600 text-xs lg:text-sm text-white">
-                                <th className="py-2 px-4 border-x border-slate-400">Name</th>
-                                <th className="py-2 px-4 border-x border-slate-400">Designation</th>
-                                <th className="py-2 px-4 border-x border-slate-400">Status</th>
-                                <th className="py-2 px-4 border-x border-slate-400">Office Telephone No.</th>
-                                <th className="py-2 px-4 border-x border-slate-400">Office Telephone No.</th>
-                                <th className="py-2 px-4">Official Address</th>
+                                <th className="py-2 px-4 border-x border-slate-400">Additional Excise Commissioner (EPF) IPS</th>
+                                <th className="py-2 px-4 border-x border-slate-400">Additional Excise Commissioner (Adm)</th>
+                                <th className="py-2 px-4 border-x border-slate-400">F.A.</th>
+                                <th className="py-2 px-4 border-x border-slate-400">Jt. L.R.</th>
+                                <th className="py-2 px-4 border-x border-slate-400">System Annalist</th>
+                                <th className="py-2 px-4">Chemical Examiner</th>
                             </tr>
                         </thead>
                         <tbody className='text-slate-800 dark:text-slate-300'>
                             {
-                                data.map(item => (
-                                    <tr className='text-x md:text-sm' key={item.id}>
-                                        <td className='border border-slate-200 dark:border-slate-400 py-2 px-4 flex justify-center items-center'>
-                                            <img className="w-8 h-8 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" src="https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659651_1280.png" alt="user image" />
-                                        </td>
-                                        <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">{item.id}. Ms. Chandni Raina</td>
-                                        <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">Economic Adviser, DEA</td>
-                                        <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">Chairperson</td>
-                                        <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">23092500</td>
-                                        <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">R.No. 40-A, North Block, New Delhi-1.</td>
+                                organisationSetup.map((item, index) => (
+                                    <tr className='text-x md:text-sm' key={index}>
+                                        <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">{item.epf}</td>
+                                        <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">{item.adm}</td>
+                                        <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">{item.fa}</td>
+                                        <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">{item.lr}</td>
+                                        <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">{item.sa}</td>
+                                        <td className="border border-slate-200 dark:border-slate-400 py-2 px-4">{item.cm}</td>
                                     </tr>
                                 ))
-                            }                            
+                            }
                         </tbody>
                     </table>
                 </div>

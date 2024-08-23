@@ -27,21 +27,76 @@ const DirectoryExciseOffice = () => {
 
     // api
     const [officeContacts, setofficeContacts] = useState([]);
+    const [currentPage, setCurrentPage] = useState(0);
+    const [totalPages, setTotalPages] = useState(0);
+    const [totalrecords, settotalrecords] = useState(0);
 
     useEffect(() => {
-        const getData = async () => {
-            try {
-                const response = await axios.get("https://jsonplaceholder.typicode.com/todos");// Use the proxied URL            
-                setofficeContacts(response.data);
+        fetchData();
+    }, [currentPage]);
+
+    // api call    
+    const fetchData = async () => {
+        try {
+            const response = await axios.get('/api/v1/public/directory/excise-offices', {
+                params: {
+                    page: currentPage, // or just 'page' in shorthand ES6 syntax
+                    size: 10  // or just 'size' in shorthand ES6 syntax
+                }
+            });
+
+            if (response.status === 200) {
+                setofficeContacts(response.data.data.content);  // Set the news state with the fetched data
+                setTotalPages(response.data.data.totalPages);
+                settotalrecords(response.data.data.totalElements)
+            } else {
+                handleErrorResponse(response.status, response.data);
             }
-            catch (error) {
-                console.error('Error:', error); // Log any errors
-            } finally {
-                setLoading(false);
+        } catch (error) {
+            if (error.response) {
+                handleErrorResponse(error.response.status, error.response.data);
+            } else if (error.request) {
+                console.log('No response received:', error.request);
+
+            } else {
+                console.log('Error:', error.message);
             }
+        } finally {
+            setLoading(false);  // Stop the loader once the request is done
         }
-        getData();
-    }, []);
+    };
+
+    // http error response
+    const handleErrorResponse = (status, data) => {
+        switch (status) {
+            case 400:
+                console.log(data.message)
+                break;
+            case 401:
+                console.log('Unauthorized:', data.message);
+                break;
+            case 500:
+                console.log('Server Error:', data.message);
+                break;
+            case 404:
+                console.log('Not Found:', data.message);
+                break;
+            default:
+                console.log('Unexpected Error:', data.message);
+        }
+    };
+
+    const goToNextPage = () => {
+        if (currentPage < totalPages - 1) {
+            setCurrentPage(currentPage + 1);
+        }
+    };
+
+    const goToPreviousPage = () => {
+        if (currentPage > 0) {
+            setCurrentPage(currentPage - 1);
+        }
+    };
 
     if (loading) {
         return <Spinner />;
@@ -87,6 +142,32 @@ const DirectoryExciseOffice = () => {
                 <p className="tracking-wider text-gray-500 text-xs sm:text-sm  dark:text-gray-400">Here are the List of Important Telephone Numbers. Kindly refer to the below list to find the specific Telephone Numbers you require. If you have any other requirement then you can mail us at <a className='font-extrabold text-slate-600 dark:text-slate-200' href="mailto:ctrlroom.ho.excise@rajasthan.gov.in">ctrlroom.ho.excise@rajasthan.gov.in</a></p>
             </div>
             <DirectoryExciseTable data={officeContacts} />
+
+            {/* pagination */}
+            {
+                officeContacts.length == 0 ? "" :
+                    <div className="mt-4 px-4 text-gray-600 md:px-0">
+                        <div className="flex items-center justify-between text-sm text-gray-600 font-medium">
+                            <button
+                                onClick={goToPreviousPage}
+                                disabled={currentPage === 0}
+                                className="px-3 py-1 border bg-white rounded-lg duration-150 hover:bg-gray-100"
+                            >
+                                Previous
+                            </button>
+                            <div className='text-black dark:text-white'>
+                                Total records: {totalrecords} || Page {currentPage + 1} of {totalPages}
+                            </div>
+                            <button
+                                onClick={goToNextPage}
+                                disabled={currentPage === totalPages - 1}
+                                className="px-3 py-1 border bg-white rounded-lg duration-150 hover:bg-gray-100"
+                            >
+                                Next
+                            </button>
+                        </div>
+                    </div>
+            }
         </div>
     )
 }

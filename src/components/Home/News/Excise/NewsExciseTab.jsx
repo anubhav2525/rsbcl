@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import HomeLoader from '../../../Loader/HomeLoader';
+import { useNavigate } from 'react-router-dom';
 
 const NewsExciseTab = () => {
     const [data, setData] = useState([]);
+    const [loading, setloading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(`/api/v1/public/news-updates/latest-five/excise`);
                 setData(response.data.data);
-                console.log(response.data.data);
             } catch (error) {
                 console.error("Error fetching news update", error);
+            }
+            finally {
+                setloading(false)
             }
         };
         fetchData();
@@ -26,8 +31,27 @@ const NewsExciseTab = () => {
         document.body.removeChild(link);
     }
 
+    // navigation
+    const navigate = useNavigate();
+
+    const handleNavigate = () => {
+        const data = {
+            api: '/api/v1/public/news-updates',
+            title: 'News',
+            department: 'Excise',
+            heading: 'News details'
+        };
+        navigate('/news', { state: data });
+    };
+
+    if (loading) {
+        return <HomeLoader />
+    }
     return (
         <div className="w-full">
+            {
+                data.length == 0 && <div className='w-full border-t h-full flex justify-center items-center'>No Content</div>
+            }
             {data.map((item, index) => {
                 const [year, month, day] = item.lastUpdate.split('-');
                 return (
@@ -59,7 +83,7 @@ const NewsExciseTab = () => {
                 );
             })}
             <div className='pt-4'>
-                <button type="button" className="bg-gradient-to-r from-blue-800 to-indigo-900 text-white font-medium rounded-full text-sm px-5 py-2 text-center hover:bg-gradient-to-r hover:from-blue-600 hover:to-violet-600">View all</button>
+                <button type="button" onClick={handleNavigate} className="bg-gradient-to-r from-blue-800 to-indigo-900 text-white font-medium rounded-full text-sm px-5 py-2 text-center hover:bg-gradient-to-r hover:from-blue-600 hover:to-violet-600">View all</button>
             </div>
         </div>
     );

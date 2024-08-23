@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { contentRsbcl } from '../../static_data/RSBCL/RSBCL'
 const AboutrsbclIntroduction = () => {
     return (
         <div className='w-full my-3 rounded-md mx-auto px-4 py-4 md:w-[80%] shadow-lg'>
@@ -35,19 +35,11 @@ const AboutrsbclIntroduction = () => {
 
             {/* Heading  */}
             <h2 className="mb-4 text-2xl font-bold leading-none text-gray-600 md:text-3xl dark:text-slate-300 tracking-wide">RSBCL Introduction</h2>
-
-            <p className='py-2 text-xs md:text-sm text-left sm:px-4 text-gray-700 dark:text-gray-300'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque iusto quisquam nemo eos soluta, quaerat fugit aliquid optio ad praesentium quo sit quis cupiditate enim porro deleniti, maiores fuga corrupti sunt ducimus illum velit nulla, distinctio temporibus! Molestias, rem deleniti, eveniet reprehenderit in magnam dolor minus est debitis doloremque quidem?
-            </p>
-
-            <p className='py-2 text-xs md:text-sm text-left sm:px-4 text-gray-700 dark:text-gray-300'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque iusto quisquam nemo eos soluta, quaerat fugit aliquid optio ad praesentium quo sit quis cupiditate enim porro deleniti, maiores fuga corrupti sunt ducimus illum velit nulla, distinctio temporibus! Molestias, rem deleniti, eveniet reprehenderit in magnam dolor minus est debitis doloremque quidem?
-            </p>
-
-            <p className='py-2 text-xs md:text-sm text-left sm:px-4 text-gray-700 dark:text-gray-300'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque iusto quisquam nemo eos soluta, quaerat fugit aliquid optio ad praesentium quo sit quis cupiditate enim porro deleniti, maiores fuga corrupti sunt ducimus illum velit nulla, distinctio temporibus! Molestias, rem deleniti, eveniet reprehenderit in magnam dolor minus est debitis doloremque quidem?
-            </p>
-
+            {contentRsbcl.map((item, index) =>
+                <p key={index} className='py-2 text-xs md:text-sm text-left sm:px-4 text-gray-700 dark:text-gray-300'>
+                    {item.content}
+                </p>
+            )}
             {/* image */}
             <div className='flex w-full justify-center flex-col items-center'>
                 <div className='w-full mt-4 mx-auto md:w-[70%] flex justify-center'>

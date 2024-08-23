@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { boardOfDirectors } from '../../static_data/RSBCL/RSBCL'
 
 const AboutrsbclDirectors = () => {
     return (
@@ -37,15 +38,9 @@ const AboutrsbclDirectors = () => {
             <h2 className="mb-4 text-2xl font-bold leading-none text-gray-600 md:text-3xl dark:text-slate-300 tracking-wide">RSBCL Board of Directors</h2>
 
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-                <BusinessCard />
-
+                {
+                    boardOfDirectors.map((item, index) => <BusinessCard props={item} key={index} />)
+                }
             </div>
         </div>
     )
@@ -54,7 +49,9 @@ const AboutrsbclDirectors = () => {
 export default AboutrsbclDirectors
 
 
-const BusinessCard = () => {
+const BusinessCard = (props) => {
+    const [data, setdata] = useState(props.props);
+
     return (
         <div
             className="relative block bg-gradient-to-r from-blue-100 overflow-hidden rounded-xl border border-gray-300 p-4 sm:p-6 lg:p-8"
@@ -66,10 +63,10 @@ const BusinessCard = () => {
             <div className="sm:flex sm:justify-between sm:gap-4">
                 <div>
                     <h3 className="text-lg font-bold text-gray-900 sm:text-xl">
-                        Anubhav
+                        {data.name}
                     </h3>
 
-                    <p className="mt-4 text-sm font-medium text-gray-600">By John Doe</p>
+                    <p className="mt-4 text-sm font-medium text-gray-600">{data.designation}</p>
                 </div>
 
                 <div className="hidden sm:block sm:shrink-0">
@@ -83,14 +80,14 @@ const BusinessCard = () => {
 
             <div className="mt-4 space-y-2">
                 <div className="text-sm font-medium text-gray-600">Address</div>
-                <div className="text-xs text-pretty  text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, perferendis.</div>
+                <div className="text-xs text-pretty  text-gray-500">{data.address}</div>
             </div>
 
 
             <div className="mt-6 flex gap-4 sm:gap-6">
                 <div className="flex flex-col">
-                    <div className="text-sm font-medium text-gray-600">Contact</div>
-                    <div className="text-xs text-gray-500">31st June, 2021</div>
+                    <div className="text-sm font-medium text-gray-600">{data.phoneNo}</div>
+                    {/* <div className="text-xs text-gray-500">31st June, 2021</div> */}
                 </div>
             </div>
         </div>

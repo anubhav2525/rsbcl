@@ -6,7 +6,7 @@ import Footer from '../components/Footer/Footer'
 
 const WithNav = () => {
     return (
-        <div className="bg-white min-h-screen">
+        <div className="bg-white min-h-screen no-scrollbar">
             <header className=''>
                 <Header />
                 <Navbar />

@@ -74,6 +74,7 @@ import News from '../authenticated/components/NewsActsFocus/News/News';
 import NewsAdd from '../authenticated/components/NewsActsFocus/News/NewsAdd/NewsAdd';
 import NewsUpdate from '../authenticated/components/NewsActsFocus/News/NewsUpdate/NewsUpdate';
 import NewsView from '../authenticated/components/NewsActsFocus/News/NewsView/NewsView';
+import ViewTableNewsActs from '../components/Home/Common/ViewTableNewsActs';
 
 //  checking authentication using local storage
 const isAuthenticated = () => {
@@ -101,6 +102,14 @@ export const routes = createBrowserRouter(
                     </>
                 },
 
+                {
+                    path: "/news",
+                    element: <ViewTableNewsActs />
+                },
+                {
+                    path: "/acts",
+                    element: <ViewTableNewsActs />
+                },
                 // contact
                 {
                     path: "contact",
