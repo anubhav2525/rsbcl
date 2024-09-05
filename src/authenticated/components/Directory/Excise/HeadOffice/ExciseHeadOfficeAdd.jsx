@@ -30,7 +30,7 @@ const ExciseHeadOfficeAdd = () => {
         formData.append('stdCode', data.stdCode);
         formData.append('officeAddress', data.officeAddress);
         formData.append('faxNo', data.faxNo);
-        formData.append('imageUrl', data.imageUrl);
+        formData.append('imageUrl', data.imageUrl ? data.imageUrl : "");
         formData.append('email', data.email);
 
         try {
@@ -86,7 +86,7 @@ const ExciseHeadOfficeAdd = () => {
     const handleGoBack = () => {
         navigate(-1); // This navigates back to the previous page
     };
-    
+
     return (
         <div className='px-2 py-3'>
             {isSubmitting && <SaveLoader />}
