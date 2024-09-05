@@ -80,8 +80,9 @@ const MobileApp = () => {
         try {
             const response = await axios.get('/api/v1/public/mobile-apps');
             if (response.status === 200) {
-                console.log('Success:', response.data.message);
+                console.log('Success:', response.data.message);                
                 setApps(response.data.data);
+                console.log(response.data.data);
             } else {
                 handleErrorResponse(response.status, response.data);
             }
@@ -110,9 +111,7 @@ const MobileApp = () => {
         }
     };
 
-    if (loading) {
-        return <Spinner />
-    }
+    if (loading) return <Spinner />
 
     return (
         <div className='h-full w-full p-4 md:px-2 '>

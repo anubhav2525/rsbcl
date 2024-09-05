@@ -43,12 +43,11 @@ const NewsUpdate = () => {
 
     const updateData = async (data) => {
         const formData = new FormData();
-        formData.append('jsonData', JSON.stringify({
-            title: data.title,
-            description: data.description,
-            department: data.department,
-            newsStatus: data.newsStatus,
-        }));
+        formData.append('document', data.document[0]);
+        formData.append('description', data.description);
+        formData.append('department', data.department);
+        formData.append('title', data.title);
+        formData.append('newsStatus', data.newsStatus);
 
         if (data.document && data.document.length > 0) {
             formData.append('document', data.document[0]);
@@ -122,7 +121,7 @@ const NewsUpdate = () => {
             <div className='bg-white border-gray-200 rounded shadow px-2 py-3 dark:bg-gray-800'>
                 <div className='flex justify-between items-center'>
                     <div>
-                        <h5 className="text-xl px-3 font-bold dark:text-white">Update Notice: {id}</h5>
+                        <h5 className="text-xl px-3 font-bold dark:text-white">Update Notice: <span className='font-semibold ml-3 text-sm'>{id}</span></h5>
                     </div>
                     <div className='flex items-center gap-x-2'>
                         <button type="button" onClick={() => seteditState(!editState)}>
@@ -176,7 +175,7 @@ const NewsUpdate = () => {
                             <div>
                                 <label
                                     htmlFor="newsStatus"
-                                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Department</label>
+                                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Status</label>
                                 <select
                                     id="newsStatus"
                                     disabled={!editState}

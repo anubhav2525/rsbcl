@@ -51,7 +51,7 @@ const ActExciseTab = () => {
     return (
         <div className="w-full">
             {
-                data.length == 0 && <div className='w-full border-t h-full flex justify-center items-center'>No Content</div>
+                data.length == 0 && <div className='w-full border-t h-full py-8 font-bold flex justify-center items-center'>No Content</div>
             }
             {data.map((item, index) => {
                 const [year, month, day] = item.lastUpdate.split('-');

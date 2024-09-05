@@ -26,17 +26,16 @@ const Contact = () => {
 
   }, []);
 
-
+  if (loading) return <Spinner />
   return (
     <div className='lg:max-w-7xl min-h-screen mx-auto bg-white dark:bg-slate-900 p-4'>
       <div className='text-lg dark:text-white flex my-4 justify-center items-center'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi sed assumenda et nihil! Molestias iste praesentium nobis a accusantium provident?</div>
-      {loading ? <Spinner /> :
-        <div className="   grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
-          {contacts.map(contact => (
-            <ContactCard key={contact.id.timestamp} props={contact} />
-          ))}
-        </div>
-      }
+      <div className=" grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
+        {contacts.map(contact => (
+          <ContactCard key={contact.id.timestamp} props={contact} />
+        ))}
+      </div>
+
     </div>
   )
 }

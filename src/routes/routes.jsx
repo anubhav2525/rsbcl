@@ -12,6 +12,9 @@ import SinglePage from '../layout/SinglePage';
 // contact
 import Contact from '../components/Contact/Contact';
 
+// mobile apps
+import MobileApplications from '../components/MobileApp/MobileApplications';
+
 // home and caraousel
 import Home from '../components/Home/Home';
 import Carousel from "../components/Carousel/Carousel";
@@ -75,6 +78,48 @@ import NewsAdd from '../authenticated/components/NewsActsFocus/News/NewsAdd/News
 import NewsUpdate from '../authenticated/components/NewsActsFocus/News/NewsUpdate/NewsUpdate';
 import NewsView from '../authenticated/components/NewsActsFocus/News/NewsView/NewsView';
 import ViewTableNewsActs from '../components/Home/Common/ViewTableNewsActs';
+import AnalyticDashboard from '../components/AnalyticDashboard/AnalyticDashboard';
+
+//service
+import ServiceProvidersAuthenticated from '../authenticated/components/ServiceProviders/ServiceProvidersAuthenticated';
+import ServiceProvidersAuthenticatedViews from '../authenticated/components/ServiceProviders/ServiceProvidersAuthenticatedViews';
+import ServiceProvidersAuthenticatedUpdate from '../authenticated/components/ServiceProviders/ServiceProvidersAuthenticatedUpdate';
+import ServiceProvidersAuthenticatedAdd from '../authenticated/components/ServiceProviders/ServiceProvidersAuthenticatedAdd';
+
+// acts
+import Acts from '../authenticated/components/NewsActsFocus/Acts/Acts';
+import ActsAdd from '../authenticated/components/NewsActsFocus/Acts/ActsAdd';
+import ActsUpdate from '../authenticated/components/NewsActsFocus/Acts/ActsUpdate';
+
+// focus
+import Focus from '../authenticated/components/NewsActsFocus/Focus/Focus';
+import FocusAdd from '../authenticated/components/NewsActsFocus/Focus/FocusAdd';
+import FocusUpdate from '../authenticated/components/NewsActsFocus/Focus/FocusUpdate';
+
+// directory excise head office
+import ExciseHeadOffice from '../authenticated/components/Directory/Excise/HeadOffice/ExciseHeadOffice';
+import ExciseHeadOfficeAdd from '../authenticated/components/Directory/Excise/HeadOffice/ExciseHeadOfficeAdd';
+import ExciseHeadOfficeUpdate from '../authenticated/components/Directory/Excise/HeadOffice/ExciseHeadOfficeUpdate';
+
+// directory rsbcl head office
+import RSBCLHeadOffice from "../authenticated/components/Directory/RSBCL/HeadOffice/RSBCLHeadOffice"
+import RSBCLHeadOfficeUpdate from "../authenticated/components/Directory/RSBCL/HeadOffice/RSBCLHeadOfficeUpdate"
+import RSBCLHeadOfficeAdd from "../authenticated/components/Directory/RSBCL/HeadOffice/RSBCLHeadOfficeAdd"
+
+// directory rsbcl depots
+import RSBCLDepots from "../authenticated/components/Directory/RSBCL/Depots/RSBCLDepots"
+import RSBCLDepotsAdd from "../authenticated/components/Directory/RSBCL/Depots/RSBCLDepotsAdd"
+import RSBCLDepotsUpdate from "../authenticated/components/Directory/RSBCL/Depots/RSBCLDepotsUpdate"
+
+// directory rsgsm depots
+import RsgsmDepots from "../authenticated/components/Directory/RSGSM/Depots/RsgsmDepots"
+import RsgsmDepotsAdd from "../authenticated/components/Directory/RSGSM/Depots/RsgsmDepotsAdd"
+import RsgsmDepotsUpdate from "../authenticated/components/Directory/RSGSM/Depots/RsgsmDepotsUpdate"
+
+// directory rsgsm reduction center
+import RsgsmReductionCenter from "../authenticated/components/Directory/RSGSM/ReductionCenter/RsgsmReductionCenter"
+import RsgsmReductionCenterAdd from "../authenticated/components/Directory/RSGSM/ReductionCenter/RsgsmReductionCenterAdd"
+import RsgsmReductionCenterUpdate from "../authenticated/components/Directory/RSGSM/ReductionCenter/RsgsmReductionCenterUpdate"
 
 //  checking authentication using local storage
 const isAuthenticated = () => {
@@ -101,21 +146,32 @@ export const routes = createBrowserRouter(
                         <Home />
                     </>
                 },
-
+                // news
                 {
                     path: "/news",
                     element: <ViewTableNewsActs />
                 },
+                // acts
                 {
                     path: "/acts",
                     element: <ViewTableNewsActs />
                 },
+                // acts
+                {
+                    path: "/analytic-dashboard",
+                    element: <AnalyticDashboard />
+                },
+
                 // contact
                 {
                     path: "contact",
                     element: <Contact />
                 },
-
+                // mobile applications
+                {
+                    path: "mobile-applications",
+                    element: <MobileApplications />
+                },
                 /** About  */
                 // excise
                 {
@@ -215,7 +271,6 @@ export const routes = createBrowserRouter(
         {
             path: "/auth/",
             element: <SinglePage />,
-
             children: [
                 {
                     path: "login",
@@ -244,13 +299,20 @@ export const routes = createBrowserRouter(
                 {
                     path: "sales",
                     element: <Sales />
-                }, {
+                },
+                {
                     path: "revenue",
                     element: <Revenue />
-                }, {
+                },
+
+                // reuirement
+                {
                     path: "requirement",
                     element: <Requirement />
-                }, {
+                },
+
+                // mobile apps
+                {
                     path: "mobile-app",
                     // element: <MobileApp />,
                     element: <ContainerLayout />,
@@ -268,7 +330,10 @@ export const routes = createBrowserRouter(
                             element: <MobileAppUpdate />
                         }
                     ]
-                }, {
+                },
+
+                // employees
+                {
                     path: "employee",
                     element: <ContainerLayout />,
                     children: [
@@ -291,6 +356,7 @@ export const routes = createBrowserRouter(
                     ]
                 },
 
+                // news
                 {
                     path: "news",
                     element: <ContainerLayout />,
@@ -311,15 +377,183 @@ export const routes = createBrowserRouter(
                             element: <NewsView />
                         }
                     ]
-
                 },
+
+                // acts
+                {
+                    path: "acts",
+                    element: <ContainerLayout />,
+                    children: [
+                        {
+                            path: "",
+                            element: <Acts />
+                        },
+                        {
+                            path: "add",
+                            element: <ActsAdd />
+                        },
+                        {
+                            path: "update/id/:id",
+                            element: <ActsUpdate />
+                        }
+                    ]
+                },
+
+                // directory
+                // directory excise-office
+                {
+                    path: "directory-excise-head-office",
+                    element: <ContainerLayout />,
+                    children: [
+                        {
+                            path: "",
+                            element: <ExciseHeadOffice />
+                        },
+                        {
+                            path: "add",
+                            element: <ExciseHeadOfficeAdd />
+                        },
+                        {
+                            path: "update/id/:id",
+                            element: <ExciseHeadOfficeUpdate />
+                        }
+                    ]
+                },
+
+                // directory rsbcl depots
+                {
+                    path: "directory-rsbcl-depots",
+                    element: <ContainerLayout />,
+                    children: [
+                        {
+                            path: "",
+                            element: <RSBCLDepots />
+                        },
+                        {
+                            path: "add",
+                            element: <RSBCLDepotsAdd />
+                        },
+                        {
+                            path: "update/id/:id",
+                            element: <RSBCLDepotsUpdate />
+                        }
+                    ]
+                },
+
+                // directory rsbcl head ofice
+                {
+                    path: "directory-rsbcl-head-office",
+                    element: <ContainerLayout />,
+                    children: [
+                        {
+                            path: "",
+                            element: <RSBCLHeadOffice />
+                        },
+                        {
+                            path: "add",
+                            element: <RSBCLHeadOfficeAdd />
+                        },
+                        {
+                            path: "update/id/:id",
+                            element: <RSBCLHeadOfficeUpdate />
+                        }
+                    ]
+                },
+
+                // directory rsgsm depots
+                {
+                    path: "directory-rsgsm-depots",
+                    element: <ContainerLayout />,
+                    children: [
+                        {
+                            path: "",
+                            element: <RsgsmDepots />
+                        },
+                        {
+                            path: "add",
+                            element: <RsgsmDepotsAdd />
+                        },
+                        {
+                            path: "update/id/:id",
+                            element: <RsgsmDepotsUpdate />
+                        }
+                    ]
+                },
+
+                // directory rsbcl reduction center
+                {
+                    path: "directory-rsgsm-reduction-center",
+                    element: <ContainerLayout />,
+                    children: [
+                        {
+                            path: "",
+                            element: <RsgsmReductionCenter />
+                        },
+                        {
+                            path: "add",
+                            element: <RsgsmReductionCenterAdd />
+                        },
+                        {
+                            path: "update/id/:id",
+                            element: <RsgsmReductionCenterUpdate />
+                        }
+                    ]
+                },
+
+                // focus
+                {
+                    path: "focus",
+                    element: <ContainerLayout />,
+                    children: [
+                        {
+                            path: "",
+                            element: <Focus />
+                        },
+                        {
+                            path: "add",
+                            element: <FocusAdd />
+                        },
+                        {
+                            path: "update/id/:id",
+                            element: <FocusUpdate />
+                        }
+                    ]
+                },
+
+                // services
+                {
+                    path: "services",
+                    element: <ContainerLayout />,
+                    children: [{
+                        path: "",
+                        element: <ServiceProvidersAuthenticated />
+                    }, {
+                        path: "add",
+                        element: <ServiceProvidersAuthenticatedAdd />
+                    }, {
+                        path: "edit/id/:id",
+                        element: <ServiceProvidersAuthenticatedUpdate />
+                    }, {
+                        path: "view/id/:id",
+                        element: <ServiceProvidersAuthenticatedViews />
+                    }
+                    ]
+                },
+
+                // contact
                 {
                     path: "contact",
                     element: <ContactPage />
-                }, {
+                },
+
+                // directory
+                {
                     path: "directory",
                     element: <DirectoryPage />
-                }, {
+                },
+
+                // Error 404
+                {
                     path: "*",
                     element: <Error404 />
                 }

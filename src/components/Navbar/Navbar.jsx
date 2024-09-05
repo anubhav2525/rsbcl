@@ -101,8 +101,8 @@ const NavElem = () => {
             {activeAboutOption == "rsbcl" && (
               <div className='absolute left-20 z-40 w-40 bg-white rounded-md shadow-lg py-2'>
                 <Link to="/about-rsbcl-introduction" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Introduction</Link>
-                <Link to="/about-rsbcl-memorandom" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Memorandum of Association</Link>
-                <Link to="/about-rsbcl-organization" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Organiation Setup</Link>
+                {/* <Link to="/about-rsbcl-memorandom" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Memorandum of Association</Link> */}
+                {/* <Link to="/about-rsbcl-organization" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Organiation Setup</Link> */}
                 <Link to="/about-rsbcl-directors" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Board of Directors</Link>
               </div>
             )}
@@ -147,8 +147,8 @@ const NavElem = () => {
 
             {activeDirectoryOption == "rsbcl" && (
               <div className='absolute left-20 z-40 w-40 bg-white rounded-md shadow-lg py-2'>
-                <Link to="/directory-rsgsm-office" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Head Office</Link>
-                <Link to="/directory-rsgsm-depots" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">RSBCl Depots</Link>
+                <Link to="/directory-rsbcl-head-office" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Head Office</Link>
+                <Link to="/directory-rsbcl-depots" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">RSBCl Depots</Link>
               </div>
             )}
 
@@ -156,10 +156,10 @@ const NavElem = () => {
 
             {activeDirectoryOption == "rsgsm" && (
               <div className='absolute left-20 z-40 w-40 bg-white rounded-md shadow-lg py-2'>
-                <Link to="/directory-rsbcl-head-office" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Head Office</Link>
-                <Link to="/directory-rsgsm-sugar-mill" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Sugar Mill</Link>
+                {/* <Link to="/directory-rsgsm-office" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Head Office</Link>
+                <Link to="/directory-rsgsm-sugar-mill" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Sugar Mill</Link> */}
                 <Link to="/directory-rsgsm-reduction-center" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Reduction Centers</Link>
-                <Link to="/directory-rsbcl-depots" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">RSGSM Depots</Link>
+                {/* <Link to="/directory-rsbcl-depots" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">RSGSM Depots</Link> */}
               </div>
             )}
           </div>
@@ -167,7 +167,7 @@ const NavElem = () => {
       </div>
 
       {/* requirement */}
-      <div className="relative">
+      {/* <div className="relative">
         <button
           onClick={() => {
             setactiveAbout(false);
@@ -185,7 +185,7 @@ const NavElem = () => {
             </div>
           )
         }
-      </div>
+      </div> */}
 
       {/* administrative report  */}
       <Link to="/administrative-report" onClick={() => {
@@ -206,7 +206,7 @@ const NavElem = () => {
       </Link>
 
       {/* mobile app */}
-      <Link to="/mobile-app" onClick={() => {
+      <Link to="/mobile-applications" onClick={() => {
         setactiveAbout(false);
         setactiveDirectory(false);
         setactiveRequirement(false);

@@ -122,7 +122,7 @@ const ViewTableNewsActs = () => {
             </div>
 
             {/* Heading  */}
-            <h2 className="mb-4 text-2xl font-bold leading-none text-gray-600 md:text-3xl dark:text-slate-300 tracking-wide">{heading} : {totalrecords}</h2>
+            <h2 className="mb-4 text-2xl font-bold leading-none text-gray-600 md:text-3xl dark:text-slate-300 tracking-wide">{heading}</h2>
 
             {/* table */}
             <div className="bg-white dark:bg-slate-800 overflow-x-auto shadow-md sm:rounded-sm">
@@ -178,7 +178,7 @@ const ViewTableNewsActs = () => {
 
             {
                 data.length == 0 ? "" :
-                    <div className="mt-4 px-4 text-gray-600 md:px-0">
+                    <div className="mt-4 text-gray-600 md:px-0">
                         <div className="flex items-center justify-between text-sm text-gray-600 font-medium">
                             <button
                                 onClick={goToPreviousPage}
@@ -187,8 +187,8 @@ const ViewTableNewsActs = () => {
                             >
                                 Previous
                             </button>
-                            <div className='text-black dark:text-white'>
-                                Page {currentPage + 1} of {totalPages}
+                            <div className='text-black dark:text-white font-normal'>
+                                <span className='hidden sm:inline'>Total records: {totalrecords} ||</span> Page {currentPage + 1} of {totalPages}
                             </div>
                             <button
                                 onClick={goToNextPage}

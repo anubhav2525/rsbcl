@@ -51,7 +51,7 @@ const NewsrsgsmTab = () => {
     return (
         <div className="w-full">
             {
-                data.length == 0 && <div className='w-full h-full flex border-t justify-center items-center'>No Content</div>
+                data.length == 0 && <div className='w-full h-full flex py-8 font-bold border-t justify-center items-center'>No Content</div>
             }
             {data.map((item, index) => {
                 const [year, month, day] = item.lastUpdate.split('-');

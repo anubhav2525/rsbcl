@@ -39,7 +39,6 @@ const News = () => {
         });
         break;
       case 401:
-        console.log('Unauthorized:', data.message);
         setAlertMsg({
           bgColor: "bg-blue-100",
           textColor: "text-blue-800",
@@ -48,7 +47,6 @@ const News = () => {
         });
         break;
       case 500:
-        console.log('Server Error:', data.message);
         setAlertMsg({
           bgColor: "bg-red-100",
           textColor: "text-red-600",
@@ -57,7 +55,6 @@ const News = () => {
         });
         break;
       case 404:
-        console.log('Not Found:', data.message);
         setAlertMsg({
           bgColor: "bg-blue-100",
           textColor: "text-blue-800",
@@ -66,7 +63,6 @@ const News = () => {
         });
         break;
       default:
-        console.log('Unexpected Error:', data.message);
         setAlertMsg({
           bgColor: "bg-red-100",
           textColor: "text-red-800",
@@ -92,15 +88,9 @@ const News = () => {
       });
 
       if (response.status === 200) {
-        // TODO: not saved in usestate
-        console.log('Success:', response.data.message);
-        setnews(response.data.data.content);  // Set the news state with the fetched data
-
+        setnews(response.data.data.content);
         setTotalPages(response.data.data.totalPages);
-
         settotalrecords(response.data.data.totalElements)
-        console.log('Fetched news:', response.data.data.content); // Log the fetched news data
-        console.log('usestate : ', news)
       } else {
         handleErrorResponse(response.status, response.data);
       }
@@ -108,7 +98,6 @@ const News = () => {
       if (error.response) {
         handleErrorResponse(error.response.status, error.response.data);
       } else if (error.request) {
-        console.log('No response received:', error.request);
         setAlertMsg({
           bgColor: "bg-blue-100",
           textColor: "text-blue-800",
@@ -116,7 +105,6 @@ const News = () => {
           message: error.message
         });
       } else {
-        console.log('Error:', error.message);
         setAlertMsg({
           bgColor: "bg-blue-100",
           textColor: "text-blue-800",
@@ -150,12 +138,13 @@ const News = () => {
   if (loading) {
     return <Spinner />
   }
+
   return (
     <div className='h-full w-full p-4 md:px-2 '>
       <div className="mb-4">
         <h3 className="text-gray-800 dark:text-white text-2xl font-bold">
           News updates
-          <span class="bg-blue-100 ms-3 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">{totalrecords}</span>
+          <span className="bg-blue-100 ms-3 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">{totalrecords}</span>
         </h3>
       </div>
 
@@ -188,6 +177,7 @@ const News = () => {
             </div>
           </form>
         </div>
+
         <div className='flex justify-end items-center gap-x-1 col-span-2'>
           {/* add button  */}
           <div>
@@ -202,6 +192,7 @@ const News = () => {
               </div>
             </Link>
           </div>
+
           {/* Refresh button */}
           <div>
             <button type="button" onClick={fetchData} className="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white rounded shadow-md hover:opacity-90 py-2 px-3 h-full text-xs flex justify-between items-center gap-x-2">
@@ -216,6 +207,7 @@ const News = () => {
               </div>
             </button>
           </div>
+
           {/* filterOption */}
           <div className=''>
             <button type="button" onClick={() => setfilterOption(!filterOption)} className="bg-gradient-to-r relative text-xs from-blue-500 via-blue-600 to-blue-700 text-white rounded shadow-md hover:opacity-90 py-2 px-3 h-full flex justify-between items-center gap-x-2">
@@ -282,12 +274,19 @@ const News = () => {
               </tr>
             </thead>
             <tbody className="text-gray-600 dark:text-slate-300 divide-y text-xs">
+
+              {news.length == 0 &&
+                <tr>
+                  <th colSpan={7}>
+                    <div className='flex text-base justify-center items-center py-8 text-center w-full'>No Content</div>
+                  </th>
+                </tr>}
               {
                 news.map((item, index) =>
                   <tr key={index}>
-                    <td className="px-6 py-3 whitespace-nowrap">{item.title}</td>
-                    <td className="px-6 py-3">{item.description}</td>
-                    <td className="px-6 py-3 whitespace-nowrap uppercase">{item.department}</td>
+                    <td className="px-6 py-3 font-bold whitespace-nowrap capitalize">{index + 1}. {item.title}</td>
+                    <td className="px-6 py-3 capitalize">{item.description}</td>
+                    <td className="px-6 py-3 whitespace-nowrap uppercase ">{item.department}</td>
                     <td className="px-6 py-3 whitespace-nowrap">{item.lastUpdate}</td>
                     <td className="px-6 py-3 whitespace-nowrap">
                       <a target="_blank" href={item.documentLinkUrl}>
@@ -296,7 +295,7 @@ const News = () => {
                         </svg>
                       </a>
                     </td>
-                    <td className='px-6 py-3'>
+                    <td className='px-6 py-3 capitalize'>
                       {item.newsStatus === 'Active' && <span className="bg-green-600 text-white text-xs font-medium me-2 px-3 py-0.5 rounded dark:bg-green-700 dark:text-white">
                         {item.newsStatus}
                       </span>}
@@ -307,7 +306,7 @@ const News = () => {
                         {item.newsStatus}
                       </span>}
                     </td>
-                    <td className="flex py-2 justify-between items-center">
+                    <td className="flex py-2 justify-end items-center">
                       <Link to={`/authenticated/news/update/id/${item.id}`} className="py-2 px-3 font-medium text-indigo-600 hover:text-indigo-500 duration-150 hover:bg-gray-100 rounded-md">
                         <svg className="w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                           <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z" />
@@ -321,7 +320,6 @@ const News = () => {
                         <svg className="w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                           <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z" />
                         </svg>
-
                       </button>
                     </td>
                   </tr>

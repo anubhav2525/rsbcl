@@ -53,7 +53,7 @@ const Sidebar = () => {
                             <div className="flex h-full min-w-[200px] max-w-[240px] overflow-y-auto flex-col gap-y-2 px-1 py-2 font-sans text-xs md:text-sm font-normal text-blue-gray-700">
 
                                 {/* dashboard button  */}
-                                <div className='w-full'>
+                                {/* <div className='w-full'>
                                     <NavLink
                                         to='/authenticated/dashboard'
                                         className={({ isActive }) =>
@@ -73,7 +73,7 @@ const Sidebar = () => {
                                             <div>Dashboard</div>
                                         </div>
                                     </NavLink>
-                                </div>
+                                </div> */}
 
                                 {/* sales button */}
                                 <div className='w-full'>
@@ -167,7 +167,7 @@ const Sidebar = () => {
                                 </div>
 
                                 {/* requirement button */}
-                                <div className='w-full '>
+                                {/* <div className='w-full '>
                                     <NavLink
                                         to='/authenticated/requirement'
                                         className={({ isActive }) =>
@@ -187,7 +187,7 @@ const Sidebar = () => {
                                             <div>Requirement</div>
                                         </div>
                                     </NavLink>
-                                </div>
+                                </div> */}
 
                                 {/* contact us button */}
                                 <div className='w-full'>
@@ -299,9 +299,7 @@ const Sidebar = () => {
                                     </div>
                                 }
 
-
                                 {/* directory  */}
-                                {/* notice us button */}
                                 <button type="button"
                                     onClick={() => setdirectory(!directory)}
                                     className={`w-full block font-medium from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br rounded-md ease-in-out hover:shadow transition-all dark:text-white hover:text-white px-2 py-2 ${directory
@@ -328,70 +326,105 @@ const Sidebar = () => {
                                     </div>
                                 </button>
                                 {
-                                    directory && <div className='w-full pl-6 gap-y-1 flex-col flex text-xs '>
-                                        <NavLink
-                                            to='/authenticated/news'
-                                            className={({ isActive }) =>
-                                                ` from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br rounded-md ease-in-out hover:shadow transition-all dark:text-white hover:text-white px-2 py-2 ${isActive
-                                                    ? "bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white rounded-md shadow"
-                                                    : ""
-                                                }`
-                                            }
-                                        >
-                                            <div className='flex gap-x-2 items-center'>
-                                                <div>
-                                                    <svg className="w-5 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                                        <path stroke="currentColor" strokeLinejoin="round" strokeLinecap="round" strokeWidth="1.5" d="M7 6H5m2 3H5m2 3H5m2 3H5m2 3H5m11-1a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2M7 3h11a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm8 7a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
-                                                    </svg>
-                                                </div>
-                                                <div>
-                                                    News
-                                                </div>
-                                            </div>
-                                        </NavLink>
-                                        <NavLink
-                                            to='/authenticated/acts'
-                                            className={({ isActive }) =>
-                                                `  from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br rounded-md ease-in-out hover:shadow transition-all dark:text-white hover:text-white px-2 py-2 ${isActive
-                                                    ? "bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white rounded-md shadow"
-                                                    : ""
-                                                }`
-                                            }
-                                        >
-                                            <div className='flex gap-x-2 items-center'>
-                                                <div>
-                                                    <svg className="w-5 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                                        <path stroke="currentColor" strokeLinejoin="round" strokeLinecap="round" strokeWidth="1.5" d="M7 6H5m2 3H5m2 3H5m2 3H5m2 3H5m11-1a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2M7 3h11a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm8 7a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
-                                                    </svg>
-                                                </div>
-                                                <div>Acts</div>
-                                            </div>
-                                        </NavLink>
-                                        <NavLink
-                                            to='/authenticated/focus'
-                                            className={({ isActive }) =>
-                                                ` from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br rounded-md ease-in-out hover:shadow transition-all dark:text-white hover:text-white px-2 py-2 ${isActive
-                                                    ? "bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white rounded-md shadow"
-                                                    : ""
-                                                }`
-                                            }
-                                        >
-                                            <div className='flex gap-x-2 items-center'>
-                                                <div>
-                                                    <svg className="w-5 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                                        <path stroke="currentColor" strokeLinejoin="round" strokeLinecap="round" strokeWidth="1.5" d="M7 6H5m2 3H5m2 3H5m2 3H5m2 3H5m11-1a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2M7 3h11a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm8 7a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
-                                                    </svg>
-                                                </div>
-                                                <div>Focus</div>
-                                            </div>
-                                        </NavLink>
+                                    directory && <div className='w-full pl-6 gap-y-1 flex-col flex'>
+                                        {/* excise  */}
+                                        <div className=''>
+                                            <h2 className="mb-2 text-base font-semibold text-gray-900 dark:text-white">Excise</h2>
+                                            <ul className="px-4 space-y-1 text-gray-500 list-none list-inside dark:text-gray-300 text-xs">
+                                                <li>
+                                                    <NavLink
+                                                        to='/authenticated/directory-excise-head-office'
+                                                        className={({ isActive }) =>
+                                                            `w-full block font-medium from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br rounded-md ease-in-out hover:shadow transition-all dark:text-white hover:text-white px-2 py-1 ${isActive
+                                                                ? "bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white rounded-md shadow"
+                                                                : ""
+                                                            }`
+                                                        }
+                                                    >
+                                                        <div className='flex gap-x-2 items-center'>
+                                                            <div>Head office</div>
+                                                        </div>
+                                                    </NavLink>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        {/* rsbcl  */}
+                                        <div className=''>
+                                            <h2 className="mb-2 text-base font-semibold text-gray-900 dark:text-white">RSBCL</h2>
+                                            <ul className="px-4 space-y-1 text-gray-500 list-none list-inside dark:text-gray-300 text-xs">
+                                                <li>
+                                                    <NavLink
+                                                        to='/authenticated/directory-rsbcl-head-office'
+                                                        className={({ isActive }) =>
+                                                            `w-full block font-medium from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br rounded-md ease-in-out hover:shadow transition-all dark:text-white hover:text-white px-2 py-1 ${isActive
+                                                                ? "bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white rounded-md shadow"
+                                                                : ""
+                                                            }`
+                                                        }
+                                                    >
+                                                        <div className='flex gap-x-2 items-center'>
+                                                            <div>Head Office</div>
+                                                        </div>
+                                                    </NavLink>
+                                                </li>
+                                                <li>
+                                                    <NavLink
+                                                        to='/authenticated/directory-rsbcl-depots'
+                                                        className={({ isActive }) =>
+                                                            `w-full block font-medium from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br rounded-md ease-in-out hover:shadow transition-all dark:text-white hover:text-white px-2 py-1 ${isActive
+                                                                ? "bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white rounded-md shadow"
+                                                                : ""
+                                                            }`
+                                                        }
+                                                    >
+                                                        <div className='flex gap-x-2 items-center'>
+                                                            <div>Depots</div>
+                                                        </div>
+                                                    </NavLink>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        {/* rsgsm  */}
+                                        <div className=''>
+                                            <h2 className="mb-2 text-base font-semibold text-gray-900 dark:text-white">RSGSM</h2>
+                                            <ul className="px-4 space-y-1 text-gray-500 list-none list-inside dark:text-gray-300 text-xs">
+                                                {/* <li>
+                                                    <NavLink
+                                                        to='/authenticated/directory-rsgsm-depots'
+                                                        className={({ isActive }) =>
+                                                            `w-full block font-medium from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br rounded-md ease-in-out hover:shadow transition-all dark:text-white hover:text-white px-2 py-1 ${isActive
+                                                                ? "bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white rounded-md shadow"
+                                                                : ""
+                                                            }`
+                                                        }
+                                                    >
+                                                        <div className='flex gap-x-2 items-center'>
+                                                            <div>Depots</div>
+                                                        </div>
+                                                    </NavLink>
+                                                </li> */}
+                                                <li>
+                                                    <NavLink
+                                                        to='/authenticated/directory-rsgsm-reduction-center'
+                                                        className={({ isActive }) =>
+                                                            `w-full block font-medium from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br rounded-md ease-in-out hover:shadow transition-all dark:text-white hover:text-white px-2 py-1 ${isActive
+                                                                ? "bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white rounded-md shadow"
+                                                                : ""
+                                                            }`
+                                                        }
+                                                    >
+                                                        <div className='flex gap-x-2 items-center'>
+                                                            <div>Reduction Centers</div>
+                                                        </div>
+                                                    </NavLink>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 }
 
-
-
                                 {/* About us */}
-                                <div className='w-full '>
+                                {/* <div className='w-full '>
                                     <NavLink
                                         to='/authenticated/about'
                                         className={({ isActive }) =>
@@ -410,8 +443,29 @@ const Sidebar = () => {
                                             <div>About us</div>
                                         </div>
                                     </NavLink>
-                                </div>
+                                </div> */}
 
+                                {/* Services us */}
+                                <div className='w-full '>
+                                    <NavLink
+                                        to='/authenticated/services'
+                                        className={({ isActive }) =>
+                                            `w-full block font-medium from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br rounded-md ease-in-out hover:shadow transition-all dark:text-white hover:text-white px-2 py-2 ${isActive
+                                                ? "bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white rounded-md shadow"
+                                                : ""
+                                            }`
+                                        }
+                                    >
+                                        <div className='flex gap-x-2 items-center'>
+                                            <div>
+                                                <svg className="w-6 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                                </svg>
+                                            </div>
+                                            <div>Services</div>
+                                        </div>
+                                    </NavLink>
+                                </div>
                             </div>
                         </div>
                     </div>

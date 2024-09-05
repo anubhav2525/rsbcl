@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from "react-hook-form"
 import Spinner from '../../Loader/Spinner';
-
+import axios from 'axios';
 const Login = () => {
     // navigartion    
     const navigate = useNavigate();
@@ -83,18 +83,39 @@ const Login = () => {
 
     // form validation using react-hook-form
     const { register, handleSubmit, setError, formState: { errors, isSubmitting }, reset } = useForm();
-
-    // delay some seconds
-    const delay = async (d) => {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve()
-            }, d * 1000);
-        })
-    }
-
+    const login = async (data) => {
+        const formData = new FormData();
+        formData.append('username', data.username);
+        formData.append('password', data.password);
+    
+        try {
+            const response = await axios.post("/api/v1/public/login", formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+    
+            if (response.status === 200) {
+                // Assuming the JWT token is in the response data (e.g., response.data.token)
+                const token = response.data.token;
+                
+                // Store the token in local storage or session storage
+                localStorage.setItem('jwtToken', token);
+    
+                // You can also set the token in the axios headers for future requests
+                axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    
+                // Optionally, you can return the token or navigate to another page
+                navigate('/authenticated/dashboard'); // Redirect to the dashboard or another route
+            }
+        } catch (error) {
+            console.error('Login failed:', error);
+            // Optionally, handle error (e.g., show error message to the user)
+            throw error;
+        }
+    };
+    
     const onSubmit = async (data) => {
-        await delay(3)
 
         // Check if the code array is null or empty
         if (!code || code.length === 0) {
@@ -114,9 +135,11 @@ const Login = () => {
             console.log("Captcha is not matched", codeInt, captcha);
             console.log(errors.captcha);
         }
-        reset();
+        await login(data);
     };
     // console.log(captcha, codeInt)        
+
+
 
     return (
         <section className="bg-gray-50 w-full h-full dark:bg-gray-900">

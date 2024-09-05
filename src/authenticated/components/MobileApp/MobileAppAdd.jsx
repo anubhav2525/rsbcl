@@ -24,16 +24,15 @@ const MobileAppAdd = () => {
 
     const saveData = async (data) => {
         const formData = new FormData();
-        formData.append('jsonData', JSON.stringify({
-            appName: data.appName,
-            link: data.link,
-            version: data.version,
-            status: data.status === 'Active' || data.status === 'In-active',
-            description: data.description
-        }));
-        formData.append('document', data.documentLink[0]);
+        formData.append('appName', data.appName)
+        formData.append('description', data.description)
+        formData.append('link', data.link)
+        formData.append('document', data.documentLink[0])
         formData.append('video', data.videoLink[0]);
         formData.append('applicationImage', data.applicationImage[0]);
+        formData.append('suggestion', data.suggestion)
+        formData.append('version', data.version)
+        formData.append('status', data.status)
 
         try {
             const response = await axios.post("/api/v1/auth/mobile-app", formData, {
@@ -155,8 +154,10 @@ const MobileAppAdd = () => {
                             <select id="status"
                                 {...register("status")}
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                <option value="Active">Active</option>
-                                <option value="Inactive">Inactive</option>
+                                <option defaultValue="ACTIVE">ACTIVE</option>
+                                <option value="REMOVED">REMOVED</option>
+                                <option value="DELETED">DELETED</option>
+                                <option value="INACTIVE">INACTIVE</option>
                             </select>
                         </div>
                     </div>
@@ -218,9 +219,6 @@ const SaveLoader = () => {
             </div>
             <div className='flex justify-center flex-col items-center'>
                 <h2 className="text-zinc-900 dark:text-white mt-4">Saving, Wait a moment ...</h2>
-                {/* <p className="text-zinc-600 dark:text-zinc-400">
-                    Processing your data
-                </p> */}
             </div>
         </div>
     )

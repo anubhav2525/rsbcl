@@ -19,14 +19,12 @@ const NewsAdd = () => {
     };
 
     const saveData = async (data) => {
-        const formData = new FormData();
-        formData.append('jsonData', JSON.stringify({
-            title: data.title,
-            description: data.description,
-            department: data.department,
-            newsStatus: data.newsStatus,
-        }));
+        const formData = new FormData();    
         formData.append('document', data.document[0]);
+        formData.append('description', data.description);
+        formData.append('department', data.department);
+        formData.append('title', data.title);
+        formData.append('newsStatus', data.newsStatus);
 
         try {
             const response = await axios.post("/api/v1/auth/news-updates", formData, {
@@ -91,8 +89,7 @@ const NewsAdd = () => {
                     textColor={alertMsg.textColor}
                     crossHover={alertMsg.crossHover}
                     message={alertMsg.message}
-                />
-            }
+                />}
 
             <div className='bg-white border-gray-200 rounded shadow px-2 py-3  dark:bg-gray-800'>
                 <div className='flex justify-between items-center'>
@@ -146,11 +143,11 @@ const NewsAdd = () => {
                             <div>
                                 <label
                                     htmlFor="newsStatus"
-                                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Department</label>
+                                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Status</label>
                                 <select
                                     id="newsStatus"
                                     {...register('newsStatus', { required: "Status required" })}
-                                    className={`bg-gray-50 border ${errors.status ? "border-red-500" : "border-gray-300 dark:border-gray-600"} text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700  dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Mobile Application name`}>
+                                    className={`bg-gray-50 border ${errors.newsStatus ? "border-red-500" : "border-gray-300 dark:border-gray-600"} text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700  dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Mobile Application name`}>
                                     <option value="Active">Active</option>
                                     <option value="In-active">In-active</option>
                                     <option defaultValue="Removed">Removed</option>
@@ -168,7 +165,7 @@ const NewsAdd = () => {
                                     className="flex bg-gray-50 border-gray-300 text-gray-900 h-10 w-full rounded-md border border-input px-3 py-2 text-sm file:border-0 file:bg-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-slate-400 file:text-gray-600 file:text-sm file:font-medium" />
                                 {errors.document && <p className="mt-2 text-end text-xs text-red-600 dark:text-red-400">{errors.document.message}</p>}
                             </div>
-                            <div className='md:col-span-2'> 
+                            <div className='md:col-span-2'>
                                 <label
                                     htmlFor="description"
                                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
@@ -176,7 +173,7 @@ const NewsAdd = () => {
                                     id="description"
                                     placeholder="Write description here ... max 300 characters"
                                     {...register('description', { required: "Description should be required", minLength: { value: 5, message: "Min 5 characters" }, maxLength: { value: 300, message: "Max 300 characters" } })}
-                                    className={`bg-gray-50 border ${errors.description ? "border-red-500" : "border-gray-300 dark:border-gray-600"} text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700  dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Mobile Application name`}  />
+                                    className={`bg-gray-50 border ${errors.description ? "border-red-500" : "border-gray-300 dark:border-gray-600"} text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700  dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Mobile Application name`} />
                                 {errors.description && <p className="mt-2 text-end text-xs text-red-600 dark:text-red-400">{errors.description.message}</p>}
                             </div>
                         </div>

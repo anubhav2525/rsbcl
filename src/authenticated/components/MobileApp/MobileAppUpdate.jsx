@@ -28,7 +28,7 @@ const MobileAppUpdate = () => {
                 setValue('appName', data.appName);
                 setValue('link', data.link);
                 setValue('version', data.version);
-                setValue('status', data.status ? 'Active' : 'Inactive');
+                setValue('status', data.status);
                 setValue('description', data.description);
                 // other data may include URLs for existing files (e.g., documentLink, videoLink, applicationImage)
             } catch (error) {
@@ -50,7 +50,7 @@ const MobileAppUpdate = () => {
             appName: data.appName,
             link: data.link,
             version: data.version,
-            status: data.status === 'Active',
+            status: data.status,
             description: data.description
         }));
         if (data.documentLink.length > 0) {
@@ -137,7 +137,7 @@ const MobileAppUpdate = () => {
             }
 
             <form className='w-full p-2' onSubmit={handleSubmit(onSubmit)}>
-               
+            
 
                 <button disabled={isSubmitting} type="submit" className="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700">Update</button>
             </form>

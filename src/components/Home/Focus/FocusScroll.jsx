@@ -55,7 +55,7 @@ const FocusScroll = () => {
             >
                 <ul className="divide-y divide-gray-200">
                     {
-                        data.length == 0 && <div className='w-full border-t h-full flex justify-center items-center'>No Content</div>
+                        data.length == 0 && <div className='w-full border-t py-8 font-bold h-full flex justify-center items-center'>No Content</div>
                     }
                     {data.map((item, index) => (
                         <li
